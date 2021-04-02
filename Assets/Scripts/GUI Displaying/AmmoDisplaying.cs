@@ -20,8 +20,8 @@ public class AmmoDisplaying : MonoBehaviour
         currentAmmoImage.rectTransform.position += offset;
         currentAmmoText = Instantiate(ammoAmount, transform);
         currentAmmoText.rectTransform.position += new Vector3(offset.x + currentAmmoImage.rectTransform.rect.width * 5, offset.y, offset.z);
-        currentAmmoText.text = $"{ammoInCylinder.ToString()} / {ammoReload.ToString()}";
-        CharacterStats.instance.onShoot += DrawAmmoStats;
+        CharacterStats.instance.onAmmoChanged += DrawAmmoStats;
+        DrawAmmoStats();
     }
     private void DrawAmmoStats()
     {

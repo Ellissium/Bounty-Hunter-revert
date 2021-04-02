@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    private const int MAX_AMMO_IN_CYLINDER = 6;
+    public const int MAX_AMMO_IN_CYLINDER = 6;
     public static CharacterStats instance = null;
 
     private int heatlhPoint;
@@ -16,7 +16,7 @@ public class CharacterStats : MonoBehaviour
     public int AmmoReload { get { return ammoReload; } set { ammoReload = value; } }
 
     public delegate void onEvent();
-    public onEvent onShoot;
+    public onEvent onAmmoChanged;
     public onEvent onHeatlhChanged;
     public void CharacterShooted()
     {
@@ -27,7 +27,8 @@ public class CharacterStats : MonoBehaviour
             {
                 ammoInCylinder = MAX_AMMO_IN_CYLINDER;
                 ammoReload -= 1;
-            } 
+            }
+            //onAmmoChanged();
         }
     }
 
@@ -44,10 +45,9 @@ public class CharacterStats : MonoBehaviour
 
     private void InitializeInstance()
     {
-        heatlhPoint = 5;
+        heatlhPoint = 3;
         ammoInCylinder = MAX_AMMO_IN_CYLINDER;
-        ammoReload = 0;
-        onShoot += CharacterShooted;
+        ammoReload = 2;
 }
 
     void Update()

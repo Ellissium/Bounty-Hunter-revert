@@ -8,6 +8,9 @@ public class ColliderForBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Bullet>() != null)
-        Destroy(collision.gameObject);
+        {
+            collision.GetComponent<Bullet>().Animator.Play("Bullet Destroyed");
+            collision.GetComponent<Bullet>().SetBulletDirection(Vector2.zero);
+        }
     }
 }

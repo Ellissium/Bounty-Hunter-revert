@@ -65,14 +65,14 @@ public class Character : MonoBehaviour
 
     public void Shoot() 
     {
-        ReceiveDamage(1);
         rbody.velocity = Vector2.zero;
         animator.Play("Shoot");
     }
 
     public void CreateBullet()
     {
-        CharacterStats.instance.onShoot();
+        CharacterStats.instance.CharacterShooted();
+        CharacterStats.instance.onAmmoChanged();
         firePoint.SetCurrentPosition(lastInputVector);
         Instantiate(bullet, firePoint.transform.position, firePoint.transform.rotation).GetComponent<Bullet>().SetBulletDirection(lastInputVector);
     }

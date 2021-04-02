@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        
+        if (Input.GetKey(KeyCode.Z) && Input.GetKey(KeyCode.X) && Input.GetKeyDown(KeyCode.C))
+        {
+            CharacterStats.instance.AmmoReload += 1;
+            CharacterStats.instance.onAmmoChanged();
+        }
     }
 }

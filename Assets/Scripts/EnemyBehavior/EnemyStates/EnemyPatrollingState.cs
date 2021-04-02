@@ -45,7 +45,6 @@ public class EnemyPatrollingState : State
 
     public void ChangePointPosition()
     {
-       
         followPoint = new Vector2(startPoint.x + Random.Range(-1f, 1f), startPoint.y + Random.Range(-1f, 1f));
         xCathetus = new Vector2(followPoint.x, enemy.transform.position.y);
         yCathetus = new Vector2(xCathetus.x, followPoint.y);
