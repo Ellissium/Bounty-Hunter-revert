@@ -24,6 +24,7 @@ public class EnemyPatrollingState : State
         enemy.position = new Vector3(followPoint.x, followPoint.y, 5);
         enemy.xCathetus = xCathetus;
         enemy.yCathetus = yCathetus;
+        Debug.Log(enemy.ToString());
     }
 
     public override void Exit()
@@ -34,7 +35,7 @@ public class EnemyPatrollingState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (Input.GetKeyDown(KeyCode.D)) ChangePointPosition();
+        if (Input.GetKeyDown(KeyCode.C)) ChangePointPosition();
     }
 
     public override void PhysicsUpdate()
@@ -47,8 +48,10 @@ public class EnemyPatrollingState : State
     {
        
         followPoint = new Vector2(startPoint.x + Random.Range(-1f, 1f), startPoint.y + Random.Range(-1f, 1f));
-        xCathetus = new Vector2(followPoint.x, enemy.transform.position.y);
-        yCathetus = new Vector2(xCathetus.x, followPoint.y);
+        Debug.Log(enemy.ToString());
+        enemy.Init(followPoint);
+        /*xCathetus = new Vector2(followPoint.x, enemy.transform.position.y);
+        yCathetus = new Vector2(xCathetus.x, followPoint.y);*/
         xAxisMovementCompleted = yAxisMovementCompleted = false;
         //isXCathetusBigger = Vector2.Distance(enemy.position, xCathetus) > Vector2.Distance(enemy.position, yCathetus) ? true : false;
         //TODO: Only for DEBUG, REMOVE ON RELEASE
@@ -74,6 +77,11 @@ public class EnemyPatrollingState : State
     {
         if (!xAxisMovementCompleted)
         {
+            Follow(followPoint, out xAxisMovementCompleted);
+            return;
+        }
+      /*  if (!xAxisMovementCompleted)
+        {
             Follow(xCathetus, out xAxisMovementCompleted);
             return;
         }
@@ -81,7 +89,7 @@ public class EnemyPatrollingState : State
         {
             Follow(yCathetus, out yAxisMovementCompleted);
             return;
-        }
+        }*/
         enemy.StartCoroutine(ChangeFollow());
         isCoroutineExist = true;
     }
@@ -89,7 +97,8 @@ public class EnemyPatrollingState : State
     {
         if (Vector2.Distance(cathetus, enemy.transform.position) > 0.01f)
         {
-            enemy.Move((cathetus - (Vector2)enemy.transform.position).normalized, 0.5f);
+            Debug.Log(enemy.ToString());
+            enemy.Move(cathetus);
             followCompleted = false;
             return;
         }
