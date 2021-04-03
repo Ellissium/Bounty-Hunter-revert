@@ -13,21 +13,24 @@ public class EnemyPath : MonoBehaviour
     bool reachedEndOfPath = false;
     Seeker seeker;
     Rigidbody2D rb;
+    private Enemy enemy;
 
-    void Start()
+    private void Start()
     {
+        enemy = GetComponent<Enemy>();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        UpdatePath();
+        InvokeRepeating("UpdatePath", .5f, .5f);
     }
 
-    public void UpdatePath(Vector2 followPoint) 
+    public void UpdatePath() 
     {
+        Vector2 followPoint = enemy.enemyPatrollingState.FollowPoint;
         if (seeker.IsDone())
         seeker.StartPath(rb.position, followPoint, OnPathComplete);
     }
-    void OnPathComplete(Path p) 
+    private void OnPathComplete(Path p) 
     {
         if (!p.error)
         {
@@ -38,7 +41,7 @@ public class EnemyPath : MonoBehaviour
 
     public void PathFollow(Vector2 cathetus)
     {
-        Debug.Log("text" + cathetus  );
+        //Debug.Log("text" + cathetus  );
         if (path == null)
             return;
         if (currentWaypoint >= path.vectorPath.Count)

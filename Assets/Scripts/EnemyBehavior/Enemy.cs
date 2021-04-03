@@ -11,14 +11,13 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rbody;
     public void Move(Vector2 cathetus)
     {
-        
         enemyPath.PathFollow(cathetus);
         /*rbody.velocity = followPoint * movementSpeed;*/
     }
     public void Init(Vector2 followPoint) 
     {
         
-        enemyPath.UpdatePath(followPoint);
+        //enemyPath.UpdatePath(followPoint);
     }
     public void StopMovement()
     {
@@ -29,11 +28,12 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         state = new StateMachine();
-        enemyPatrollingState = new EnemyPatrollingState(gameObject, state);
-        state.Initialize(enemyPatrollingState);
         enemyPath = GetComponent<EnemyPath>();
 
         rbody = GetComponent<Rigidbody2D>();
+        enemyPatrollingState = new EnemyPatrollingState(gameObject, state);
+        state.Initialize(enemyPatrollingState);
+
     }
 
     private void Update()

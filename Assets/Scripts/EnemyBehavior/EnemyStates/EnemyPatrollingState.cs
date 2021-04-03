@@ -14,6 +14,8 @@ public class EnemyPatrollingState : State
     private bool yAxisMovementCompleted = false;
     private bool isCoroutineExist = false;
 
+    public Vector2 FollowPoint { get { return followPoint; } }
+
     public override void Enter()
     {
         base.Enter();
@@ -24,7 +26,6 @@ public class EnemyPatrollingState : State
         enemy.position = new Vector3(followPoint.x, followPoint.y, 5);
         enemy.xCathetus = xCathetus;
         enemy.yCathetus = yCathetus;
-        Debug.Log(enemy.ToString());
     }
 
     public override void Exit()
@@ -47,7 +48,6 @@ public class EnemyPatrollingState : State
     public void ChangePointPosition()
     {
         followPoint = new Vector2(startPoint.x + Random.Range(-1f, 1f), startPoint.y + Random.Range(-1f, 1f));
-        Debug.Log(enemy.ToString());
         enemy.Init(followPoint);
         /*xCathetus = new Vector2(followPoint.x, enemy.transform.position.y);
         yCathetus = new Vector2(xCathetus.x, followPoint.y);*/
@@ -96,7 +96,6 @@ public class EnemyPatrollingState : State
     {
         if (Vector2.Distance(cathetus, enemy.transform.position) > 0.01f)
         {
-            Debug.Log(enemy.ToString());
             enemy.Move(cathetus);
             followCompleted = false;
             return;
