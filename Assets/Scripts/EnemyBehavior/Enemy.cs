@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private EnemyPath enemyPath;
     public StateMachine state;
     public EnemyPatrollingState enemyPatrollingState;
 
     private Rigidbody2D rbody;
-    public void Move(Vector2 direction, float movementSpeed = 0.5f)
+    public void Move(Vector2 cathetus)
     {
-        rbody.velocity = direction * movementSpeed;
+        
+        enemyPath.PathFollow(cathetus);
+        /*rbody.velocity = followPoint * movementSpeed;*/
+    }
+    public void Init(Vector2 followPoint) 
+    {
+        
+        enemyPath.UpdatePath(followPoint);
     }
     public void StopMovement()
     {
+        
         rbody.velocity = Vector2.zero;
     }
 
@@ -22,6 +31,7 @@ public class Enemy : MonoBehaviour
         state = new StateMachine();
         enemyPatrollingState = new EnemyPatrollingState(gameObject, state);
         state.Initialize(enemyPatrollingState);
+        enemyPath = GetComponent<EnemyPath>();
 
         rbody = GetComponent<Rigidbody2D>();
     }
