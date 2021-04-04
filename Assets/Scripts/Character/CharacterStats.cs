@@ -20,15 +20,34 @@ public class CharacterStats : MonoBehaviour
     public onEvent onHeatlhChanged;
     public void CharacterShooted()
     {
+        //if (ammoInCylinder > 0 || ammoReload > 0)
+        //{
+        //    ammoInCylinder -= 1;
+        //    if (ammoInCylinder == 0 && ammoReload > 0)
+        //    {
+        //        ammoInCylinder = MAX_AMMO_IN_CYLINDER;
+        //        ammoReload -= 1;
+        //    }
+        //    //onAmmoChanged();
+        //}
         if (ammoInCylinder > 0)
         {
             ammoInCylinder -= 1;
-            if (ammoInCylinder == 0 && ammoReload > 0)
+        }
+        ReloadAmmo();
+        onAmmoChanged();
+
+    }
+
+    public void ReloadAmmo()
+    {
+        if (ammoInCylinder <= 0)
+        {
+            if (ammoReload > 0)
             {
-                ammoInCylinder = MAX_AMMO_IN_CYLINDER;
                 ammoReload -= 1;
+                ammoInCylinder = MAX_AMMO_IN_CYLINDER;
             }
-            //onAmmoChanged();
         }
     }
 
