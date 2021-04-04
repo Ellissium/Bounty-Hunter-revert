@@ -9,16 +9,12 @@ public class Enemy : MonoBehaviour
     public EnemyPatrollingState enemyPatrollingState;
 
     private Rigidbody2D rbody;
-    public void Move(Vector2 cathetus)
+    public void Move()
     {
-        enemyPath.PathFollow(cathetus);
+        enemyPath.PathFollow();
         /*rbody.velocity = followPoint * movementSpeed;*/
     }
-    public void Init(Vector2 followPoint) 
-    {
-        
-        //enemyPath.UpdatePath(followPoint);
-    }
+  
     public void StopMovement()
     {
         

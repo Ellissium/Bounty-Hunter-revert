@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    
     public static GameManager instance = null;
+    public GameObject player;
 
     private void Start()
     {

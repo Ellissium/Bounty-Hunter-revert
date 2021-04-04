@@ -5,9 +5,9 @@ using Pathfinding;
 
 public class EnemyPath : MonoBehaviour
 {
-    public Transform target;
-    public float speed = 200f;
-    public  float nextWaypointDistance =0.3f;
+    
+    public float speed = 50f;
+    public  float nextWaypointDistance = 0.1f;
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
@@ -19,13 +19,14 @@ public class EnemyPath : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         seeker = GetComponent<Seeker>();
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();   
         UpdatePath();
         InvokeRepeating("UpdatePath", .5f, .5f);
     }
 
     public void UpdatePath() 
     {
+        
         Vector2 followPoint = enemy.enemyPatrollingState.FollowPoint;
         if (seeker.IsDone())
         seeker.StartPath(rb.position, followPoint, OnPathComplete);
@@ -39,9 +40,8 @@ public class EnemyPath : MonoBehaviour
         }
     }
 
-    public void PathFollow(Vector2 cathetus)
+    public void PathFollow()
     {
-        //Debug.Log("text" + cathetus  );
         if (path == null)
             return;
         if (currentWaypoint >= path.vectorPath.Count)

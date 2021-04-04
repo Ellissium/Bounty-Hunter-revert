@@ -400,7 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAQIezZvmJKYgIAAAcFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z4jAM/SuMzwsToFC6t11K6R5oO6U7veRibIV4cOyMPwq0w39f2TEkZU8I6Ul6epLzRYSyNTCnzdIIvtIcyM8eCTb50WuDj3CgW63W4hPOmHfBXRlANGJeqRMa/cOQZnUFzgj2S21lAGfo9EoU2lQLvoW5ts6iu6DSAoaMdiFboeurRw74078LKUe0RrfB+kTrLuud0GSgHJgudDBJ2H4WzQBusF4xSasaeCDepoyGg1FKmQxmEalwqgTKBmEGpqUUNpEi7ljHodd1CQbC1FxQnDESCfASxLZ0oXY397koLLgkgKHHe2FQqqYo+a0b/Spqdw23Dyp9aDOOlJqSq/+i/WEMF0ZXj+euwyx0cKVgu1d6ZNS6jrxd9/132l7tqdzRjYT3EtSTXhrtFcegMz6keguj+/bvZbB5CWzX+huqV05ft4pftjkYz26Gs+l4uuhnt2lXYaBTFOIwl6LaxB3cNI611FH5eA9gcEt/kH28FpvqojdQ+mvhjW67Z5UCD8JYh6E0sgpcN9qbACWLKGAYzbu5NgqiO01Qg6LSHV+wjLve5lWs0/Yq8kDDA0rNU+z8Lq5SorvFZ9lV6EXvL5uzpd6vwJbP3kmhoCUdAk+o01wr1RxbV5Nz2tqbgrJO2tYL/v3OCMBknBUwmownEzbOhrixgt9klM2A3s42fEriIQqFc1L50hBN8uDWVFtc4dGdvyu9paF1PHxu6H4pPivdkVyoQq+ZAVDPTYULcTDYBF8oX3CBAq3BOaHivslXTqRmO+D5pVAeJ10cnKF5WyUntfjQLnhyMo8fkpycyOkfUEsDBBQAAAgIAAAQIewfJvy6bQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM01VFQSi9KLMgoBooYgjilmSkgdrRSaqqpsUFaqpGpsalpsrGBoa6BeVqKiUFiskVqorlFUoqZUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAQIezZvmJKYgIAAAcFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAQIewfJvy6bQAAAHgAAAAJACQAAAAAAAAAAAAAAK8CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAZwMAAAAA
+    dataString: UEsDBBQAAAgIAAAQIezQzdYUfQIAACgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE2TojAQ/StWzqsVBBT3tus4zh7mo8bZmguXSBpJCQmVhFFnyv++nYDCuFwI/fH69esOX0RIU0NmlV5rwR8VB/JzRNyZ/Bj1zgc4sp2SG/EJl5h3wW3hgpiPeWVWKLQHLs2oCqwW2S+5K10wRWMjRa50teI7WCpjDZpzVhpAl1bWZUs0fY3IEV/jhUs54Wk6d6dPPC3o6IzHDKQFPQydxPE8pkGXMKaTKJlFyYLGSZcZTaI5DWdxFKzGdOFRGpmVrKqBu5Z6sGkwCSk+wQUtniQ+XmLXXSid0NjxUGUpTMea2FPtVdnUBWhwsnDBUATP1IEVIHaFdSWGuc95bsB2Cml2uhMatWxByW/VClwxs28pfrCycWVCz6mFfPzPOw68O9eqerhUDairYAuR7V/ZKWPGDvQfmu++027kgZV7ti3hvQD5pNZaNZKj0+rGpTYGpnf957WxZQHZvre3VG+MTd0Lfx33JEyiIJmFMxzVvJufa+jshTguS1Ft/RCi1rAplVfeLwxoHNMfZO/XyXS4aHWU/hp4Y7vh3nWOe6GNRVfXsnRct6rRLpSsvICutcYulZbgzV0HNUhW2tMLwtjbad74BmVvPPfM3bCueOe7XJybFG/u4ym9cb2ow3VyplCHRzDFc2NLIaEn7RxPqNNSSdku21CTS9qm0TnLBmm7RvDve0YA4pDmMI3DOM5CGuDEch5RliXA5smWz4hfRCGxT1a+tEQ7eXBqsgeXuHSXH89orVntF59rdliLz0oNJBcyV5tMA8jnFuFKHDQWwSvKV1ygQBuwVkg/b/KVklJle+DpFSj1na6OVrO0R0lJLT6UdZaULP2fJiVncv4HUEsDBBQAAAgIAAAQIewfJvy6bQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM01VFQSi9KLMgoBooYgjilmSkgdrRSaqqpsUFaqpGpsalpsrGBoa6BeVqKiUFiskVqorlFUoqZUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAQIezQzdYUfQIAACgFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAQIewfJvy6bQAAAHgAAAAJACQAAAAAAAAAAAAAAMoCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAggMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -5520,6 +5520,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3f0aa4f887b1a449a64df424c196b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &969228455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 969228457}
+  - component: {fileID: 969228456}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &969228456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969228455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd8d65ada077f74ba2810509261f0ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 949404698}
+--- !u!4 &969228457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969228455}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5042132, y: -0.60787666, z: -11.263727}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1009491635
 GameObject:
   m_ObjectHideFlags: 0
@@ -5861,7 +5905,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1dd62198eccc940a4690df2a1f1d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 949404700}
   speed: 50
   nextWaypointDistance: 0.1
 --- !u!95 &1194027346
@@ -5890,7 +5933,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194027341}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -51339,7 +51382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647406121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.61, y: -0.094, z: 0}
+  m_LocalPosition: {x: -1.44, y: -0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1194027342}
@@ -56042,7 +56085,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905642637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.621, y: -1.596, z: 0}
+  m_LocalPosition: {x: -3.37, y: -1.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 949404700}

@@ -5,21 +5,28 @@ using UnityEngine;
 public class EnemyPatrollingState : State
 {
     private Enemy enemy;
+    private Transform player;
+
+    private float pursuitDistance = 1.5f;
 
     private Vector2 startPoint;
     private Vector2 followPoint;
     private Vector2 xCathetus;
     private Vector2 yCathetus;
-    private bool xAxisMovementCompleted = false;
-    private bool yAxisMovementCompleted = false;
-    private bool isCoroutineExist = false;
 
+    private bool followCompleted = false;
+    private bool isCoroutineExist = false;
+    private bool isPursuit = false;
+    private bool isPatroll = false;
+   
     public Vector2 FollowPoint { get { return followPoint; } }
 
     public override void Enter()
     {
         base.Enter();
         enemy = entity.GetComponent<Enemy>();
+        player = GameManager.instance.player.transform;
+
         startPoint = enemy.transform.position;
         ChangePointPosition();
         //TODO: REMOVE ON RELEASE(ONLY FOR DEBUG)
@@ -47,11 +54,22 @@ public class EnemyPatrollingState : State
 
     public void ChangePointPosition()
     {
-        followPoint = new Vector2(startPoint.x + Random.Range(-1f, 1f), startPoint.y + Random.Range(-1f, 1f));
-        enemy.Init(followPoint);
+        /*Debug.Log("ora" + player.position);*/
+        if (Vector2.Distance(enemy.transform.position, player.position) < pursuitDistance)
+        {
+            followPoint = new Vector2(player.transform.position.x , player.transform.position.y);
+            isPatroll = false;
+            isPursuit = true;
+        }
+        else
+        {
+            followPoint = new Vector2(startPoint.x + Random.Range(-1f, 1f), startPoint.y + Random.Range(-1f, 1f));
+            isPursuit = false;
+            isPatroll = true;    
+        }
         /*xCathetus = new Vector2(followPoint.x, enemy.transform.position.y);
         yCathetus = new Vector2(xCathetus.x, followPoint.y);*/
-        xAxisMovementCompleted = yAxisMovementCompleted = false;
+        followCompleted = false;
         //isXCathetusBigger = Vector2.Distance(enemy.position, xCathetus) > Vector2.Distance(enemy.position, yCathetus) ? true : false;
         //TODO: Only for DEBUG, REMOVE ON RELEASE
         enemy.position = new Vector3(followPoint.x, followPoint.y, 5);
@@ -61,7 +79,7 @@ public class EnemyPatrollingState : State
 
     public EnemyPatrollingState(GameObject entity, StateMachine stateMachine): base(entity,stateMachine)
     {
-
+        
     }
 
     private IEnumerator ChangeFollow()
@@ -74,34 +92,43 @@ public class EnemyPatrollingState : State
 
     private void FollowOnEachAxis()
     {
-        if (!xAxisMovementCompleted)
-        {
-            Follow(followPoint, out xAxisMovementCompleted);
-            return;
+        if (isPatroll) {
+            if (!followCompleted && Vector2.Distance(enemy.transform.position, player.position) > pursuitDistance)
+            {
+                Follow(followPoint, out followCompleted);
+                return;
+            }
+            else if(Vector2.Distance(enemy.transform.position, player.position) < pursuitDistance) 
+            { 
+                ChangePointPosition(); 
+            }
+            enemy.StartCoroutine(ChangeFollow());
+            isCoroutineExist = true;
         }
-      /*  if (!xAxisMovementCompleted)
+        if (isPursuit) 
         {
-            Follow(xCathetus, out xAxisMovementCompleted);
-            return;
+            if (!followCompleted && Vector2.Distance(enemy.transform.position, player.position) < pursuitDistance)
+            {
+                followPoint = new Vector2(player.transform.position.x, player.transform.position.y);
+                Follow(followPoint, out followCompleted);
+                return;
+            }
+            else {
+                enemy.StartCoroutine(ChangeFollow());
+                isCoroutineExist = true;
+            }
         }
-        if (!yAxisMovementCompleted)
-        {
-            Follow(yCathetus, out yAxisMovementCompleted);
-            return;
-        }*/
-        enemy.StartCoroutine(ChangeFollow());
-        isCoroutineExist = true;
     }
-    private void Follow(Vector2 cathetus, out bool followCompleted)
+
+    private void Follow(Vector2 followPoint, out bool followCompleted)
     {
-        if (Vector2.Distance(cathetus, enemy.transform.position) > 0.01f)
+        if (Vector2.Distance(followPoint, enemy.transform.position) > 0.1f)
         {
-            enemy.Move(cathetus);
+            enemy.Move();
             followCompleted = false;
             return;
         }
         enemy.StopMovement();
         followCompleted = true;
     }
-    
 }
