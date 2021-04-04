@@ -12,7 +12,8 @@ public class ShootingState : State
         base.Enter();
         character = entity.GetComponent<Character>();
         wasShot = false;
-        character.Shoot();
+        character.CharacterAnimator.Play("Shoot");
+        character.Rbody.velocity = Vector2.zero;
     }
 
     public override void Exit()
@@ -28,7 +29,8 @@ public class ShootingState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (character.CharacterAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.6f && !wasShot)
+        AnimatorStateInfo info = character.CharacterAnimator.GetCurrentAnimatorStateInfo(0);
+        if (info.normalizedTime >= 0.6f && !wasShot && info.IsName("Shoot"))
         {
             wasShot = true;
             character.CreateBullet();

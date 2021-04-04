@@ -46,9 +46,11 @@ public class AmmoDisplaying : MonoBehaviour
     {
         while(ammoInCylinder == 0)
         {
-            currentAmmoText.text = "No Ammo!";
+            if (CharacterStats.instance.AmmoInCylinder == 0)
+                currentAmmoText.text = "No Ammo!";
             yield return new WaitForSeconds(1f);
-            currentAmmoText.text = string.Empty;
+            if (CharacterStats.instance.AmmoInCylinder == 0)
+                currentAmmoText.text = string.Empty;
             yield return new WaitForSeconds(0.5f);
         }
     }

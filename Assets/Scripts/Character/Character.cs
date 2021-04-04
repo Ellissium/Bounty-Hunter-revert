@@ -14,12 +14,13 @@ public class Character : MonoBehaviour
     private Animator animator;
     
 
-    Vector2 lastInputVector;
+    Vector2 lastInputVector = Vector2.up;
     private bool isDiagonal = false;
     private bool noDelayStarted = false;
     private float delay = 0.05f;
 
     public Animator CharacterAnimator { get { return animator; } }
+    public Rigidbody2D Rbody { get { return rbody; } }
 
     public void Move(Vector2 inputVector, float speed)
     {
@@ -63,16 +64,9 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void Shoot() 
-    {
-        rbody.velocity = Vector2.zero;
-        animator.Play("Shoot");
-    }
-
     public void CreateBullet()
     {
         CharacterStats.instance.CharacterShooted();
-        CharacterStats.instance.onAmmoChanged();
         firePoint.SetCurrentPosition(lastInputVector);
         Instantiate(bullet, firePoint.transform.position, firePoint.transform.rotation).GetComponent<Bullet>().SetBulletDirection(lastInputVector);
     }

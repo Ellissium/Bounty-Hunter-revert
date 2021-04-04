@@ -18,6 +18,7 @@ public class GroundedState : State
     {
         base.Enter();
         character = entity.GetComponent<Character>();
+        character.CharacterAnimator.Play("Idle");
         inputVector = new Vector2(0f, 0f);
         isShoot = false;
     }
@@ -33,7 +34,7 @@ public class GroundedState : State
         inputVector.x = Input.GetAxisRaw("Horizontal");
         inputVector.y = Input.GetAxisRaw("Vertical");
 
-        isShoot = Input.GetButtonDown("Shoot");
+        isShoot = Input.GetKeyDown(KeyCode.Space);
     }
 
     public override void LogicUpdate()
