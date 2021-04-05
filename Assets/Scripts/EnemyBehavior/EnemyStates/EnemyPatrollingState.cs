@@ -61,8 +61,8 @@ public class EnemyPatrollingState : State
         }
         else if (Vector2.Distance(enemy.transform.position, player.position) > pursuitDistance)
         {
-            Debug.Log(enemy.startPoint);
-            followPoint = new Vector2(enemy.startPoint.x + Random.Range(-1f, 1f), enemy.startPoint.x + Random.Range(-1f, 1f));
+            Debug.Log(enemy.StartPoint);
+            followPoint = new Vector2(enemy.StartPoint.x + Random.Range(-1f, 1f), enemy.StartPoint.y + Random.Range(-1f, 1f));
         }
         /*else if (Vector2.Distance(enemy.transform.position, player.position) <= shootingDistance) 
         {

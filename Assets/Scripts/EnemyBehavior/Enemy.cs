@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public EnemyPursuitState enemyPursuitState;
     public EnemyShootingState enemyShootingState;
     private Vector2 fPoint;
-    public Vector2 startPoint;
+    private Vector2 startPoint;
     private Rigidbody2D rbody;
 
     public Vector2 FollowPoint { get { return fPoint; } }
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         state = new StateMachine();
         enemyPath = GetComponent<EnemyPath>();
         startPoint = transform.position;
-        Debug.Log(startPoint);
+        Debug.Log(startPoint.ToString());
         rbody = GetComponent<Rigidbody2D>();
         enemyPatrollingState = new EnemyPatrollingState(gameObject, state);
         enemyPursuitState = new EnemyPursuitState(gameObject, state);
