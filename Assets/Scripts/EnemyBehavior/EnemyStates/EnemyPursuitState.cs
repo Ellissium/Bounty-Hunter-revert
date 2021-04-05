@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPatrollingState : State
+public class EnemyPursuitState : State
 {
     private Enemy enemy;
     private Transform player;
@@ -20,14 +20,12 @@ public class EnemyPatrollingState : State
     private bool isPursuit = false;
     private bool isPatroll = false;
     private bool isShoot = false;
-   
 
     public override void Enter()
     {
         base.Enter();
         enemy = entity.GetComponent<Enemy>();
         player = GameManager.instance.player.transform;
-
         ChangePointPosition();
         //TODO: REMOVE ON RELEASE(ONLY FOR DEBUG)
         enemy.position = new Vector3(followPoint.x, followPoint.y, 5);
@@ -43,7 +41,6 @@ public class EnemyPatrollingState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (Input.GetKeyDown(KeyCode.C)) ChangePointPosition();
     }
 
     public override void PhysicsUpdate()
@@ -54,27 +51,25 @@ public class EnemyPatrollingState : State
 
     public void ChangePointPosition()
     {
-        /*Debug.Log("ora" + player.position);*/
-        if (Vector2.Distance(enemy.transform.position, player.position) <= pursuitDistance/* &&*/ /*Vector2.Distance(enemy.transform.position, player.position) > shootingDistance*/)
+        if (Vector2.Distance(enemy.transform.position, player.position) <= pursuitDistance /*&& *//*Vector2.Distance(enemy.transform.position, player.position) > shootingDistance*/)
         {
-            stateMachine.ChangeState(enemy.enemyPursuitState);
+            followPoint = new Vector2(player.transform.position.x, player.transform.position.y);
         }
         else if (Vector2.Distance(enemy.transform.position, player.position) > pursuitDistance)
         {
-            Debug.Log(enemy.startPoint);
-            followPoint = new Vector2(enemy.startPoint.x + Random.Range(-1f, 1f), enemy.startPoint.x + Random.Range(-1f, 1f));
+            stateMachine.ChangeState(enemy.enemyPatrollingState);
         }
-        /*else if (Vector2.Distance(enemy.transform.position, player.position) <= shootingDistance) 
+       /* else if (Vector2.Distance(enemy.transform.position, player.position) <= shootingDistance)
         {
-            followPoint = new Vector2(player.transform.position.x, player.transform.position.y );
+            followPoint = new Vector2(player.transform.position.x, player.transform.position.y);
             stateMachine.ChangeState(enemy.enemyShootingState);
-            *//*isPatroll = false;
-            isPursuit = false;*//*
+            *//* isPatroll = false;
+             isPursuit = false;*//*
 
         }*/
-            /*xCathetus = new Vector2(followPoint.x, enemy.transform.position.y);
-            yCathetus = new Vector2(xCathetus.x, followPoint.y);*/
-            followCompleted = false;
+        /*xCathetus = new Vector2(followPoint.x, enemy.transform.position.y);
+        yCathetus = new Vector2(xCathetus.x, followPoint.y);*/
+        followCompleted = false;
         //isXCathetusBigger = Vector2.Distance(enemy.position, xCathetus) > Vector2.Distance(enemy.position, yCathetus) ? true : false;
         //TODO: Only for DEBUG, REMOVE ON RELEASE
         enemy.position = new Vector3(followPoint.x, followPoint.y, 5);
@@ -82,31 +77,49 @@ public class EnemyPatrollingState : State
         enemy.yCathetus = yCathetus;
     }
 
-    public EnemyPatrollingState(GameObject entity, StateMachine stateMachine): base(entity,stateMachine)
+    public EnemyPursuitState(GameObject entity, StateMachine stateMachine) : base(entity, stateMachine)
     {
-        
+
     }
 
     private IEnumerator ChangeFollow()
     {
         if (isCoroutineExist) yield break;
-        yield return new WaitForSeconds(Random.Range(1f,3f));
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
         ChangePointPosition();
         isCoroutineExist = false;
     }
 
     private void FollowOnEachAxis()
     {
-            if (!followCompleted && Vector2.Distance(enemy.transform.position, player.position) > pursuitDistance)
+            if (!followCompleted && Vector2.Distance(enemy.transform.position, player.position) <= pursuitDistance)
             {
+                followPoint = new Vector2(player.transform.position.x, player.transform.position.y);
                 enemy.Move(followPoint, out followCompleted);
                 return;
             }
-            else if(Vector2.Distance(enemy.transform.position, player.position) <= pursuitDistance) 
-            { 
-                ChangePointPosition(); 
+            else if (Vector2.Distance(enemy.transform.position, player.position) < pursuitDistance)
+            {
+                ChangePointPosition();
             }
-            enemy.StartCoroutine(ChangeFollow());
-            isCoroutineExist = true;
+            else
+            {
+                enemy.StartCoroutine(ChangeFollow());
+                isCoroutineExist = true;
+            }
+      /*  if (isShoot)
+        {
+            if (!followCompleted && Vector2.Distance(enemy.transform.position, player.position) <= shootingDistance)
+            {
+                followPoint = new Vector2(player.transform.position.x, player.transform.position.y);
+                enemy.Move(followPoint, out followCompleted);
+                return;
+            }
+            else
+            {
+                enemy.StartCoroutine(ChangeFollow());
+                isCoroutineExist = true;
+            }
+        }*/
     }
 }

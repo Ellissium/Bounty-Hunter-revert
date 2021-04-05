@@ -7,12 +7,25 @@ public class Enemy : MonoBehaviour
     private EnemyPath enemyPath;
     public StateMachine state;
     public EnemyPatrollingState enemyPatrollingState;
-
+    public EnemyPursuitState enemyPursuitState;
+    public EnemyShootingState enemyShootingState;
+    private Vector2 fPoint;
+    public Vector2 startPoint;
     private Rigidbody2D rbody;
-    public void Move()
+
+    public Vector2 FollowPoint { get { return fPoint; } }
+    public Vector2 StartPoint { get { return startPoint; } }
+    public void Move(Vector2 followPoint, out bool followCompleted)
     {
-        enemyPath.PathFollow();
-        /*rbody.velocity = followPoint * movementSpeed;*/
+        if (Vector2.Distance(followPoint, transform.position) > 0.1f)
+        {
+            fPoint = followPoint;
+            enemyPath.PathFollow();
+            followCompleted = false;
+            return;
+        }
+        StopMovement();
+        followCompleted = true;
     }
   
     public void StopMovement()
@@ -25,9 +38,12 @@ public class Enemy : MonoBehaviour
     {
         state = new StateMachine();
         enemyPath = GetComponent<EnemyPath>();
-
+        startPoint = transform.position;
+        Debug.Log(startPoint);
         rbody = GetComponent<Rigidbody2D>();
         enemyPatrollingState = new EnemyPatrollingState(gameObject, state);
+        enemyPursuitState = new EnemyPursuitState(gameObject, state);
+        enemyShootingState = new EnemyShootingState(gameObject, state);
         state.Initialize(enemyPatrollingState);
 
     }

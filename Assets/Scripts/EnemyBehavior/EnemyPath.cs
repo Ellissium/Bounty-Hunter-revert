@@ -27,7 +27,7 @@ public class EnemyPath : MonoBehaviour
     public void UpdatePath() 
     {
         
-        Vector2 followPoint = enemy.enemyPatrollingState.FollowPoint;
+        Vector2 followPoint = enemy.FollowPoint;
         if (seeker.IsDone())
         seeker.StartPath(rb.position, followPoint, OnPathComplete);
     }
