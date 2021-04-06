@@ -8,18 +8,19 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     public GameObject player;
 
-    private void Start()
+    public static GameManager Instance { get { return instance; } }
+
+
+    private void Awake()
     {
-        if (instance == null)
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
         {
             instance = this;
-        } 
-        else if (instance == this)
-        {
-            Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
-        InitializeGameManager();
     }
 
     private void InitializeGameManager()
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
             CharacterStats.instance.AmmoReload += 1;
             CharacterStats.instance.ReloadAmmo();
             CharacterStats.instance.onAmmoChanged();
+            Debug.Log(instance == null);
         }
     }
 }

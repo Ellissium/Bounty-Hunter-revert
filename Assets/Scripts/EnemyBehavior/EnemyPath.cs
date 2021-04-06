@@ -17,7 +17,7 @@ public class EnemyPath : MonoBehaviour
 
     private void Start()
     {
-        enemy = GetComponent<EnemyCactus>();
+        enemy = GetComponent<Enemy>();
         seeker = GetComponent<Seeker>(); 
         rb = GetComponent<Rigidbody2D>();   
         InvokeRepeating("UpdatePath", .5f, .5f);

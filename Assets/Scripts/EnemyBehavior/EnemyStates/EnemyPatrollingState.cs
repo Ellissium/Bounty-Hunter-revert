@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EnemyPatrollingState : State
+public class EnemyPatrollingState : State
 {
     public Transform player;
 
@@ -21,17 +21,17 @@ public abstract class EnemyPatrollingState : State
 
     }
 
-    /*public override void Enter()
-    {
-        base.Enter();
-       *//* enemy = entity.GetComponent<Enemy>();
-        player = GameManager.instance.player.transform;
-        ChangePointPosition();
-        //TODO: REMOVE ON RELEASE(ONLY FOR DEBUG)
-        enemy.position = new Vector3(followPoint.x, followPoint.y, 5);
-        enemy.xCathetus = xCathetus;
-        enemy.yCathetus = yCathetus;*//*
-    }*/
+    //public override void Enter()
+    //{
+    //    base.Enter();
+    //    //*//* enemy = entity.GetComponent<Enemy>();
+    //    // player = GameManager.instance.player.transform;
+    //    //ChangePointPosition();
+    //    ////TODO: REMOVE ON RELEASE(ONLY FOR DEBUG)
+    //    //enemy.position = new Vector3(followPoint.x, followPoint.y, 5);
+    //    //enemy.xCathetus = xCathetus;
+    //    //enemy.yCathetus = yCathetus; *//*
+    //}
 
     public override void Exit()
     {

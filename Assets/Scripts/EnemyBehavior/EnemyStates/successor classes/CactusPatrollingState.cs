@@ -15,7 +15,8 @@ public class CactusPatrollingState : EnemyPatrollingState
     {
         base.Enter();
         enemy = entity.GetComponent<EnemyCactus>();
-        player = GameManager.instance.player.transform;
+        Debug.Log(GameManager.instance == null);
+        player = GameManager.instance.player.GetComponent<Transform>();
         ChangePointPosition();
         //TODO: REMOVE ON RELEASE(ONLY FOR DEBUG)
         enemy.position = new Vector3(followPoint.x, followPoint.y, 5);

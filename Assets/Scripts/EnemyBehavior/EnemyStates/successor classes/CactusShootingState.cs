@@ -45,7 +45,7 @@ public class CactusShootingState : EnemyShootingState
         }
         else if (Vector2.Distance(enemy.transform.position, player.position) <= shootingDistance)
         {
-            rayCast();
+           
         }
         followCompleted = false;
         //TODO: Only for DEBUG, REMOVE ON RELEASE
