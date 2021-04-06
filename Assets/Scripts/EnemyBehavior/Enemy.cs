@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private EnemyPath enemyPath;
     public StateMachine state;
-    public EnemyPatrollingState enemyPatrollingState;
+   /* public EnemyPatrollingState enemyPatrollingState;
     public EnemyPursuitState enemyPursuitState;
-    public EnemyShootingState enemyShootingState;
-    private Vector2 fPoint;
-    private Vector2 startPoint;
-    private Rigidbody2D rbody;
+    public EnemyShootingState enemyShootingState;*/
+
+    public EnemyPath enemyPath;
+    public Rigidbody2D rbody;
+    public Vector2 fPoint;
+    public Vector2 startPoint;
 
     public Vector2 FollowPoint { get { return fPoint; } }
     public Vector2 StartPoint { get { return startPoint; } }
-    public void Move(Vector2 followPoint, out bool followCompleted)
+
+    public virtual void Move(Vector2 followPoint, out bool followCompleted)
     {
         if (Vector2.Distance(followPoint, transform.position) > 0.1f)
         {
             fPoint = followPoint;
+           /* Debug.Log(FollowPoint);*/
             enemyPath.PathFollow();
             followCompleted = false;
             return;
@@ -28,32 +31,30 @@ public class Enemy : MonoBehaviour
         followCompleted = true;
     }
   
-    public void StopMovement()
+    public virtual void StopMovement()
     {
-        
         rbody.velocity = Vector2.zero;
     }
 
-    private void Start()
+    public virtual void Start()
     {
         state = new StateMachine();
         enemyPath = GetComponent<EnemyPath>();
-        startPoint = transform.position;
-        Debug.Log(startPoint.ToString());
         rbody = GetComponent<Rigidbody2D>();
-        enemyPatrollingState = new EnemyPatrollingState(gameObject, state);
+        startPoint = transform.position;
+
+      /*  enemyPatrollingState = new EnemyPatrollingState(gameObject, state);
         enemyPursuitState = new EnemyPursuitState(gameObject, state);
         enemyShootingState = new EnemyShootingState(gameObject, state);
-        state.Initialize(enemyPatrollingState);
-
+        state.Initialize(enemyPatrollingState);*/
     }
 
-    private void Update()
+    public void Update()
     {
         state.CurrentState.LogicUpdate();
     }
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         state.CurrentState.PhysicsUpdate();
     }
@@ -63,7 +64,7 @@ public class Enemy : MonoBehaviour
     public Vector3 xCathetus;
     public Vector3 yCathetus;
 
-    public void OnDrawGizmos()
+    public virtual void OnDrawGizmos()
     {   
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(position, 0.03f);

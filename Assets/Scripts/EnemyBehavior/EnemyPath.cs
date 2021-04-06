@@ -17,17 +17,17 @@ public class EnemyPath : MonoBehaviour
 
     private void Start()
     {
-        enemy = GetComponent<Enemy>();
-        seeker = GetComponent<Seeker>();
+        enemy = GetComponent<EnemyCactus>();
+        seeker = GetComponent<Seeker>(); 
         rb = GetComponent<Rigidbody2D>();   
-        UpdatePath();
         InvokeRepeating("UpdatePath", .5f, .5f);
     }
 
     public void UpdatePath() 
     {
-        
+        /*Debug.Log(enemy.FollowPoint);*/
         Vector2 followPoint = enemy.FollowPoint;
+        /*Debug.Log(enemy.FollowPoint);*/
         if (seeker.IsDone())
         seeker.StartPath(rb.position, followPoint, OnPathComplete);
     }

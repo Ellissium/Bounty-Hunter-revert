@@ -2,36 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPursuitState : State
+public abstract class EnemyPursuitState : State
 {
-    private Enemy enemy;
-    private Transform player;
+    
+    public Transform player;
 
-    private float pursuitDistance = 1.5f;
-    private float shootingDistance = 0.5f;
+    public float pursuitDistance = 1.5f;
+    public float shootingDistance = 0.5f;
 
-    private Vector2 startPoint;
-    private Vector2 followPoint;
-    private Vector2 xCathetus;
-    private Vector2 yCathetus;
+    public Vector2 followPoint;
+    public Vector2 xCathetus;
+    public Vector2 yCathetus;
 
-    private bool followCompleted = false;
-    private bool isCoroutineExist = false;
-    private bool isPursuit = false;
-    private bool isPatroll = false;
-    private bool isShoot = false;
+    public bool followCompleted = false;
+    public bool isCoroutineExist = false;
 
-    public override void Enter()
+    public EnemyPursuitState(GameObject entity, StateMachine stateMachine) : base(entity, stateMachine)
     {
-        base.Enter();
-        enemy = entity.GetComponent<Enemy>();
+
+    }
+
+  /*  public override void Enter()
+    {
+        *//*base.Enter();*/
+        /*enemy = entity.GetComponent<Enemy>();
         player = GameManager.instance.player.transform;
         ChangePointPosition();
         //TODO: REMOVE ON RELEASE(ONLY FOR DEBUG)
         enemy.position = new Vector3(followPoint.x, followPoint.y, 5);
         enemy.xCathetus = xCathetus;
-        enemy.yCathetus = yCathetus;
-    }
+        enemy.yCathetus = yCathetus;*//*
+    }*/
 
     public override void Exit()
     {
@@ -49,9 +50,9 @@ public class EnemyPursuitState : State
         FollowOnEachAxis();
     }
 
-    public void ChangePointPosition()
+    public virtual void ChangePointPosition()
     {
-        if (Vector2.Distance(enemy.transform.position, player.position) <= pursuitDistance /*&& *//*Vector2.Distance(enemy.transform.position, player.position) > shootingDistance*/)
+        /*if (Vector2.Distance(enemy.transform.position, player.position) <= pursuitDistance *//*&& *//*Vector2.Distance(enemy.transform.position, player.position) > shootingDistance*//*)
         {
             followPoint = new Vector2(player.transform.position.x, player.transform.position.y);
         }
@@ -59,30 +60,38 @@ public class EnemyPursuitState : State
         {
             stateMachine.ChangeState(enemy.enemyPatrollingState);
         }
-       /* else if (Vector2.Distance(enemy.transform.position, player.position) <= shootingDistance)
-        {
-            followPoint = new Vector2(player.transform.position.x, player.transform.position.y);
-            stateMachine.ChangeState(enemy.enemyShootingState);
-            *//* isPatroll = false;
-             isPursuit = false;*//*
+        followCompleted = false;*/
 
-        }*/
+
+
+
+
+        /* else if (Vector2.Distance(enemy.transform.position, player.position) <= shootingDistance)
+         {
+             followPoint = new Vector2(player.transform.position.x, player.transform.position.y);
+             stateMachine.ChangeState(enemy.enemyShootingState);
+             *//* isPatroll = false;
+              isPursuit = false;*//*
+
+         }*/
         /*xCathetus = new Vector2(followPoint.x, enemy.transform.position.y);
         yCathetus = new Vector2(xCathetus.x, followPoint.y);*/
-        followCompleted = false;
+
         //isXCathetusBigger = Vector2.Distance(enemy.position, xCathetus) > Vector2.Distance(enemy.position, yCathetus) ? true : false;
         //TODO: Only for DEBUG, REMOVE ON RELEASE
-        enemy.position = new Vector3(followPoint.x, followPoint.y, 5);
+
+
+
+
+
+        /*enemy.position = new Vector3(followPoint.x, followPoint.y, 5);
         enemy.xCathetus = xCathetus;
-        enemy.yCathetus = yCathetus;
+        enemy.yCathetus = yCathetus;*/
     }
 
-    public EnemyPursuitState(GameObject entity, StateMachine stateMachine) : base(entity, stateMachine)
-    {
+   
 
-    }
-
-    private IEnumerator ChangeFollow()
+    public IEnumerator ChangeFollow()
     {
         if (isCoroutineExist) yield break;
         yield return new WaitForSeconds(Random.Range(1f, 3f));
@@ -90,9 +99,9 @@ public class EnemyPursuitState : State
         isCoroutineExist = false;
     }
 
-    private void FollowOnEachAxis()
+    public virtual void FollowOnEachAxis()
     {
-            if (!followCompleted && Vector2.Distance(enemy.transform.position, player.position) <= pursuitDistance)
+         /*   if (!followCompleted && Vector2.Distance(enemy.transform.position, player.position) <= pursuitDistance)
             {
                 followPoint = new Vector2(player.transform.position.x, player.transform.position.y);
                 enemy.Move(followPoint, out followCompleted);
@@ -106,7 +115,12 @@ public class EnemyPursuitState : State
             {
                 enemy.StartCoroutine(ChangeFollow());
                 isCoroutineExist = true;
-            }
+            }*/
+
+
+
+
+
       /*  if (isShoot)
         {
             if (!followCompleted && Vector2.Distance(enemy.transform.position, player.position) <= shootingDistance)

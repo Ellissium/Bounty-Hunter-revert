@@ -252,7 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 174683983}
   - component: {fileID: 174683984}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5355,7 +5355,7 @@ GameObject:
   - component: {fileID: 949404704}
   - component: {fileID: 949404701}
   - component: {fileID: 949404705}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5841,7 +5841,8 @@ GameObject:
   - component: {fileID: 1194027344}
   - component: {fileID: 1194027350}
   - component: {fileID: 1194027345}
-  m_Layer: 0
+  - component: {fileID: 1194027351}
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5885,11 +5886,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194027341}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9042c64070ed7b745b440fbd7cb651f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPath: {fileID: 0}
+  rbody: {fileID: 0}
+  fPoint: {x: 0, y: 0}
   startPoint: {x: 0, y: 0}
   position: {x: 0, y: 0, z: 0}
   xCathetus: {x: 0, y: 0, z: 0}
@@ -6053,6 +6057,25 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &1194027351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194027341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b532fea7893af04994bc9f0be3ef0a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPath: {fileID: 0}
+  rbody: {fileID: 0}
+  fPoint: {x: 0, y: 0}
+  startPoint: {x: 0, y: 0}
+  position: {x: 0, y: 0, z: 0}
+  xCathetus: {x: 0, y: 0, z: 0}
+  yCathetus: {x: 0, y: 0, z: 0}
 --- !u!1001 &1206233997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51344,7 +51367,7 @@ GameObject:
   - component: {fileID: 1647406127}
   - component: {fileID: 1647406126}
   - component: {fileID: 1647406125}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56071,7 +56094,7 @@ GameObject:
   - component: {fileID: 1905642638}
   - component: {fileID: 1905642640}
   - component: {fileID: 1905642639}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56086,7 +56109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905642637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.73, y: -2.78, z: 0}
+  m_LocalPosition: {x: -3.014, y: 0.394, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 949404700}
