@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2595324606142040915}
   - component: {fileID: 2179814961135811059}
+  - component: {fileID: 5333346076126397652}
+  - component: {fileID: 4958558177117392459}
   m_Layer: 0
   m_Name: Fences_73 pivot
   m_TagString: Untagged
@@ -43,6 +45,63 @@ SortingGroup:
   m_SortingLayerID: 741932287
   m_SortingLayer: 1
   m_SortingOrder: 0
+--- !u!50 &5333346076126397652
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857014538994751507}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!66 &4958558177117392459
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857014538994751507}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1945318870512224030}
+    m_ColliderPaths:
+    - - X: -600000
+        Y: 299999
+      - X: -600000
+        Y: 0
+      - X: 800000
+        Y: 0
+      - X: 800000
+        Y: 299999
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 0.0799707, y: 0}
+      - {x: 0.0799707, y: 0.0299999}
+      - {x: -0.060000002, y: 0.029970601}
+      - {x: -0.0599707, y: 0}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
 --- !u!1 &8437737970211796953
 GameObject:
   m_ObjectHideFlags: 0

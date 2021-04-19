@@ -95,7 +95,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -108,12 +108,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.03, y: 0.08}
-      - {x: -0.049999997, y: 0.08}
+    - - {x: 0.03, y: 0.02}
+      - {x: -0.05, y: 0.02}
       - {x: -0.049999997, y: -0.08}
-      - {x: 0.06021063, y: -0.08}
-      - {x: 0.060506936, y: -0.051750444}
-      - {x: 0.030483115, y: -0.051584605}
+      - {x: 0.06, y: -0.08}
+      - {x: 0.06, y: -0.05}
+      - {x: 0.03, y: -0.05}
 --- !u!1 &8848416751733073121
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +124,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6493566950276337016}
   - component: {fileID: 125871048779292343}
+  - component: {fileID: 269400584924913724}
+  - component: {fileID: 1880484147176007336}
   m_Layer: 0
   m_Name: Fences2
   m_TagString: Untagged
@@ -157,3 +159,66 @@ SortingGroup:
   m_SortingLayerID: 741932287
   m_SortingLayer: 1
   m_SortingOrder: 0
+--- !u!50 &269400584924913724
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8848416751733073121}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!66 &1880484147176007336
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8848416751733073121}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 2276091890451896327}
+    m_ColliderPaths:
+    - - X: 300000
+        Y: 999999
+      - X: -500000
+        Y: 999999
+      - X: -499999
+        Y: 0
+      - X: 600000
+        Y: 0
+      - X: 600000
+        Y: 299999
+      - X: 300000
+        Y: 299999
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 0.0599707, y: 0}
+      - {x: 0.0599707, y: 0.0299999}
+      - {x: 0.030000001, y: 0.0300293}
+      - {x: 0.0299707, y: 0.099999905}
+      - {x: -0.05, y: 0.0999706}
+      - {x: -0.0499706, y: 0}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
