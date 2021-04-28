@@ -12,6 +12,7 @@ public class AmmoDisplaying : MonoBehaviour
     private int ammoReload;
     private Vector3 offset = new Vector3(122f,-76f,0);
     Text currentAmmoText;
+
     private void Start()
     {
         ammoInCylinder = CharacterStats.instance.AmmoInCylinder;
@@ -41,7 +42,6 @@ public class AmmoDisplaying : MonoBehaviour
             }
         }
     }
-
     private IEnumerator DrawNoAmmo()
     {
         while(ammoInCylinder == 0)
@@ -54,10 +54,4 @@ public class AmmoDisplaying : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
     }
-
-    private void OnGUI()
-    {
-        
-    }
-
 }

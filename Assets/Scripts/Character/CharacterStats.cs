@@ -10,10 +10,11 @@ public class CharacterStats : MonoBehaviour
     private int heatlhPoint;
     private int ammoInCylinder;
     private int ammoReload;
-
+    private int money;
     public int HealthPoint { get { return heatlhPoint; } set { heatlhPoint = value; } }
     public int AmmoInCylinder { get { return ammoInCylinder; } set { ammoInCylinder = value; } }
     public int AmmoReload { get { return ammoReload; } set { ammoReload = value; } }
+    public int Money { get { return money; } set { money = value; } }
 
     public delegate void onEvent();
     public onEvent onAmmoChanged;
@@ -67,6 +68,7 @@ public class CharacterStats : MonoBehaviour
         heatlhPoint = 3;
         ammoInCylinder = MAX_AMMO_IN_CYLINDER;
         ammoReload = 2;
+        money = 100;
 }
 
     void Update()
