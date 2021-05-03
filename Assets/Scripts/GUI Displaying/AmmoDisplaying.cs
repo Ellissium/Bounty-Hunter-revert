@@ -7,10 +7,13 @@ public class AmmoDisplaying : MonoBehaviour
 {
     [SerializeField] private Image ammoImage;
     [SerializeField] private Text ammoAmount;
+    [SerializeField] private GameObject background;
+    [SerializeField] private Sprite shortBackground;
+    [SerializeField] private Sprite longBackground;
 
     private int ammoInCylinder;
     private int ammoReload;
-    private Vector3 offset = new Vector3(122f,-76f,0);
+    private Vector3 offset = new Vector3(140f,-95f,0);
     Text currentAmmoText;
 
     private void Start()
@@ -30,13 +33,19 @@ public class AmmoDisplaying : MonoBehaviour
         ammoReload = CharacterStats.instance.AmmoReload;
         if (ammoReload != 0)
         {
+            background.GetComponent<Image>().sprite = shortBackground;
+            background.GetComponent<RectTransform>().sizeDelta = new Vector2(53f, 17f);
             currentAmmoText.text = $"{ammoInCylinder.ToString()} / {ammoReload.ToString()}";
-        } else
+        } 
+        else
         {
             if (ammoInCylinder != 0)
             {
+                background.GetComponent<Image>().sprite = shortBackground;
+                background.GetComponent<RectTransform>().sizeDelta = new Vector2(53f, 17f);
                 currentAmmoText.text = $"{ammoInCylinder.ToString()}";
-            } else
+            } 
+            else
             {
                 StartCoroutine(DrawNoAmmo());
             }
@@ -47,7 +56,11 @@ public class AmmoDisplaying : MonoBehaviour
         while(ammoInCylinder == 0)
         {
             if (CharacterStats.instance.AmmoInCylinder == 0)
+            {
+                background.GetComponent<Image>().sprite = longBackground;
+                background.GetComponent<RectTransform>().sizeDelta = new Vector2(76f, 17f);
                 currentAmmoText.text = "No Ammo!";
+            }
             yield return new WaitForSeconds(1f);
             if (CharacterStats.instance.AmmoInCylinder == 0)
                 currentAmmoText.text = string.Empty;

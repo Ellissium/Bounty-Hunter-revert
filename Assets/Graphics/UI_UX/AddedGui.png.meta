@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: -6476175281075968180
     second: AddedGui_1
+  - first:
+      213: -4040278396030245858
+    second: AddedGui_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -101,7 +104,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 13
+        y: 26
         width: 21
         height: 12
       alignment: 9
@@ -122,7 +125,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 13
         width: 21
         height: 12
       alignment: 9
@@ -134,6 +137,27 @@ TextureImporter:
       bones: []
       spriteID: c472d44e4e00026a0800000000000000
       internalID: -6476175281075968180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AddedGui_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 21
+        height: 12
+      alignment: 9
+      pivot: {x: 0.47619048, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e14aee2843c0ee7c0800000000000000
+      internalID: -4040278396030245858
       vertices: []
       indices: 
       edges: []

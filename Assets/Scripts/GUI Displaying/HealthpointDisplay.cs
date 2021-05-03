@@ -10,7 +10,7 @@ public class HealthpointDisplay : MonoBehaviour
 
     private int healthPoints;
     private List<Image> healthPointsList = new List<Image>();
-    private Vector3 offset = new Vector3(122f, -24f,0f);
+    private Vector3 offset = new Vector3(130f, -24f,0f);
     private Vector3 basicOffset;
     private void Start()
     {

@@ -84,12 +84,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb64d0dfeff82be4db31fe0f79a329be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lootType: 1
   addedItem: {fileID: 5452212835606507544, guid: 83bed0950fac3e148805812428dc2f40, type: 3}
+  emptyBag: {fileID: 5995160490406106847, guid: e98191937e4ce0044ad0642d9aadc47e, type: 3}
+  emptyBox: {fileID: 21300000, guid: 733ab6299b8874c4b8e385216bad0707, type: 3}
   getKeyE: {fileID: 6455343659299730625}
+  lootBox: {fileID: 3366841573498931886}
   player: {fileID: 101166891735116685, guid: e4b77fd6cda0ad64a971c2cdcc54204c, type: 3}
   yellowButtonSprite: {fileID: -551999409905301375, guid: 88c4e768c39fa764b98e01d4e88ef83c, type: 3}
   redButtonSprite: {fileID: -361769550911067002, guid: 88c4e768c39fa764b98e01d4e88ef83c, type: 3}
-  startButtonPos: {x: 0, y: 0, z: 0}
 --- !u!1 &3366841573498931886
 GameObject:
   m_ObjectHideFlags: 0

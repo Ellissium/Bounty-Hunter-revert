@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour
 {
     public const int MAX_AMMO_IN_CYLINDER = 6;
+    public const int MAX_HEALTHPOINTS = 3;
     public static CharacterStats instance = null;
 
     private int heatlhPoint;
@@ -65,10 +66,10 @@ public class CharacterStats : MonoBehaviour
 
     private void InitializeInstance()
     {
-        heatlhPoint = 3;
+        heatlhPoint = MAX_HEALTHPOINTS;
         ammoInCylinder = MAX_AMMO_IN_CYLINDER;
         ammoReload = 2;
-        money = 100;
+        money = 10;
 }
 
     void Update()

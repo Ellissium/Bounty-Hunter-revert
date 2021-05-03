@@ -107,5 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968edffe90ab381409d1066dcea53863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc: {fileID: 0}
+  lootTypeNPC: 0
+  lootType: 0
+  addBulletSprite: {fileID: 9212630880254009090, guid: b6f45242e9d4d074eb42d8cfdbf7cfd0, type: 3}
+  addHealthSprite: {fileID: -6476175281075968180, guid: b6f45242e9d4d074eb42d8cfdbf7cfd0, type: 3}
+  addMoneySprite: {fileID: -4040278396030245858, guid: b6f45242e9d4d074eb42d8cfdbf7cfd0, type: 3}
   sprite: {fileID: 0}
