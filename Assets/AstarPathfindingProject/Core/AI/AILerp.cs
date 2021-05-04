@@ -290,7 +290,7 @@ namespace Pathfinding {
 		/// </summary>
 		bool startHasRun = false;
 
-		Vector3 previousPosition1, previousPosition2, simulatedPosition;
+		public Vector3 previousPosition1, previousPosition2, simulatedPosition;
 		Quaternion simulatedRotation;
 
 		/// <summary>Required for serialization backward compatibility</summary>

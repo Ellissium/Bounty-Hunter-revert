@@ -12,5 +12,10 @@ public class ColliderForBullet : MonoBehaviour
             collision.GetComponent<Bullet>().Animator.Play("Bullet Destroyed");
             collision.GetComponent<Bullet>().SetBulletDirection(Vector2.zero);
         }
+        else if (collision.GetComponent<BulletBot>() != null)
+        {
+            collision.GetComponent<BulletBot>().Animator.Play("BulletBot_destroyed");
+            collision.GetComponent<BulletBot>().SetBulletDirection(Vector2.zero);
+        }
     }
 }
