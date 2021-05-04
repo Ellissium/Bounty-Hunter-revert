@@ -5,15 +5,17 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour
 {
     public const int MAX_AMMO_IN_CYLINDER = 6;
+    public const int MAX_HEALTHPOINTS = 3;
     public static CharacterStats instance = null;
 
     private int heatlhPoint;
     private int ammoInCylinder;
     private int ammoReload;
-
+    private int money;
     public int HealthPoint { get { return heatlhPoint; } set { heatlhPoint = value; } }
     public int AmmoInCylinder { get { return ammoInCylinder; } set { ammoInCylinder = value; } }
     public int AmmoReload { get { return ammoReload; } set { ammoReload = value; } }
+    public int Money { get { return money; } set { money = value; } }
 
     public delegate void onEvent();
     public onEvent onAmmoChanged;
@@ -64,9 +66,10 @@ public class CharacterStats : MonoBehaviour
 
     private void InitializeInstance()
     {
-        heatlhPoint = 3;
+        heatlhPoint = MAX_HEALTHPOINTS;
         ammoInCylinder = MAX_AMMO_IN_CYLINDER;
         ammoReload = 2;
+        money = 0;
 }
 
     void Update()

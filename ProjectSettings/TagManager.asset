@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LootBoxBullet
+  - LootBoxMoney
   layers:
   - Default
   - TransparentFX
@@ -12,7 +14,7 @@ TagManager:
   - Water
   - UI
   - Enemies
-  - 
+  - Above
   - 
   - 
   - 
@@ -43,4 +45,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 741932287
+    locked: 0
+  - name: Above
+    uniqueID: 3033487245
     locked: 0

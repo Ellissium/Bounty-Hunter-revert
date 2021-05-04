@@ -87,7 +87,6 @@ public class Character : MonoBehaviour
     private void Start()
     {
         state = new StateMachine();
-
         grounding = new GroundedState(gameObject, state);
         shooting = new ShootingState(gameObject, state);
         state.Initialize(grounding);
