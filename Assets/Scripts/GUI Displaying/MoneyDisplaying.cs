@@ -24,7 +24,7 @@ public class MoneyDisplaying : MonoBehaviour
         DrawMoneyStats();
     }
 
-    private void DrawMoneyStats()
+    public void DrawMoneyStats()
     {
         money = CharacterStats.instance.Money;
         currentMoneyText.text = $"{money.ToString()}$";

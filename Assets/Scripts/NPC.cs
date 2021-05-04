@@ -175,6 +175,8 @@ public class NPC : MonoBehaviour
                 CharacterStats.instance.Money -= 10;
                 CharacterStats.instance.HealthPoint += 1;
                 CharacterStats.instance.onHeatlhChanged();
+                CharacterStats.instance.onHeatlhChanged();
+                moneyDisplaying.DrawMoneyStats();
                 Debug.Log(CharacterStats.instance.HealthPoint);
             }
             else if (Input.GetKeyDown(KeyCode.E) && maxHealthText == false)
