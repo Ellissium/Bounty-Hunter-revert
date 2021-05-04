@@ -69,7 +69,7 @@ public class CharacterStats : MonoBehaviour
         heatlhPoint = MAX_HEALTHPOINTS;
         ammoInCylinder = MAX_AMMO_IN_CYLINDER;
         ammoReload = 2;
-        money = 10;
+        money = 0;
 }
 
     void Update()

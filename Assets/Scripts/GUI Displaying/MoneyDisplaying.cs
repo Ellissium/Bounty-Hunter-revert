@@ -28,6 +28,9 @@ public class MoneyDisplaying : MonoBehaviour
     {
         money = CharacterStats.instance.Money;
         currentMoneyText.text = $"{money.ToString()}$";
+        background.GetComponent<Image>().sprite = shortBackground;
+        background.GetComponent<RectTransform>().sizeDelta = new Vector2(53f, 17f);
+
     }
 
     public IEnumerator DrawNoMoney()
@@ -39,31 +42,16 @@ public class MoneyDisplaying : MonoBehaviour
                 background.GetComponent<Image>().sprite = longBackground;
                 background.GetComponent<RectTransform>().sizeDelta = new Vector2(140f, 17f);
                 currentMoneyText.text = "Not Enough Money!";
+                yield return new WaitForSeconds(1f);
             }
-            yield return new WaitForSeconds(1f);
+         
             if (CharacterStats.instance.Money <= 0)
             {
                 background.GetComponent<Image>().sprite = shortBackground;
                 background.GetComponent<RectTransform>().sizeDelta = new Vector2(53f, 17f);
                 currentMoneyText.text = $"{money.ToString()}$";
+                yield return new WaitForSeconds(0.5f);
             }
-            yield return new WaitForSeconds(0.5f);
-        }
-        npc.RepeatingText = false;
-    }
-
-    public IEnumerator DrawMaxHealth()
-    {
-        for (int i = 1; i < 4; i++)
-        {
-            background.GetComponent<Image>().sprite = longBackground;
-            background.GetComponent<RectTransform>().sizeDelta = new Vector2(140f, 17f);
-            currentMoneyText.text = "You Have Max Health";
-            yield return new WaitForSeconds(1f);
-            background.GetComponent<Image>().sprite = shortBackground;
-            background.GetComponent<RectTransform>().sizeDelta = new Vector2(53f, 17f);
-            currentMoneyText.text = $"{money.ToString()}$";
-            yield return new WaitForSeconds(0.5f);
         }
         npc.RepeatingText = false;
     }

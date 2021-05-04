@@ -13,6 +13,7 @@ public class NPC : MonoBehaviour
     private GameObject temp;
 
     [SerializeField] private MoneyDisplaying moneyDisplaying;
+    [SerializeField] private HealthpointDisplaying healthpointDisplaying;
 
     [SerializeField] private Sprite yellowButtonSprite;
     [SerializeField] private Sprite redButtonSprite;
@@ -26,9 +27,11 @@ public class NPC : MonoBehaviour
     private bool moveUp = true;
     private bool inRangeOfBuy = false;
     private bool repeatingText = false;
+    private bool maxHealthText = false;
     private bool inCollision = false;
 
     public bool RepeatingText { get { return repeatingText; } set { repeatingText = value; } }
+    public bool MaxHealthText { get { return maxHealthText; } set { maxHealthText = value; } }
 
     private void Start()
     {
@@ -174,10 +177,10 @@ public class NPC : MonoBehaviour
                 CharacterStats.instance.onHeatlhChanged();
                 Debug.Log(CharacterStats.instance.HealthPoint);
             }
-            else if (Input.GetKeyDown(KeyCode.E) && repeatingText == false)
+            else if (Input.GetKeyDown(KeyCode.E) && maxHealthText == false)
             {
-                repeatingText = true;
-                StartCoroutine(moneyDisplaying.DrawMaxHealth());
+                maxHealthText = true;
+                StartCoroutine(healthpointDisplaying.DrawMaxHealth());
             }
         }
         else if (Input.GetKeyDown(KeyCode.E) && repeatingText == false)
