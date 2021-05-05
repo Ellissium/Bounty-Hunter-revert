@@ -80,6 +80,7 @@ public class LootBox : MonoBehaviour
             CharacterStats.instance.onAmmoChanged();
             lootBox.GetComponent<SpriteRenderer>().sprite = emptyBox;
             isLooted = true;
+            AudioManager.instance.PlayNew("PickUp");
         }
     }
 
@@ -95,6 +96,7 @@ public class LootBox : MonoBehaviour
             CharacterStats.instance.onAmmoChanged();
             lootBox.GetComponent<SpriteRenderer>().sprite = emptyBag;
             isLooted = true;
+            AudioManager.instance.PlayNew("PickUp");
         }
     }
 

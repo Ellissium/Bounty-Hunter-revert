@@ -14,10 +14,19 @@ public class StateMachine
 
     public void ChangeState(State newState)
     {
-        CurrentState.Exit();
+        if (CurrentState != null)
+        {
+            if (newState != null)
+            {
+                CurrentState.Exit();
+            }
 
-        CurrentState = newState;
-        newState.Enter();
+            CurrentState = newState;
+            if (newState != null)
+            {
+                newState.Enter();
+            }
+        }
     }
 
     public override string ToString()

@@ -10,9 +10,12 @@ public class CameraController : MonoBehaviour
     public Vector2 minPosition;
     void Update()
     {
-        Vector3 player = new Vector3(target.position.x,target.position.y,transform.position.z);
-        player.x = Mathf.Clamp(player.x, minPosition.x, maxPosition.x);
-        player.y = Mathf.Clamp(player.y, minPosition.y, maxPosition.y);
-        transform.position = new Vector3(player.x + offset.x, player.y + offset.y, offset.z);
+        if (target != null)
+        {
+            Vector3 player = new Vector3(target.position.x, target.position.y, transform.position.z);
+            player.x = Mathf.Clamp(player.x, minPosition.x, maxPosition.x);
+            player.y = Mathf.Clamp(player.y, minPosition.y, maxPosition.y);
+            transform.position = new Vector3(player.x + offset.x, player.y + offset.y, offset.z);
+        }
     }
 }
