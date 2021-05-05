@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
     [SerializeField] private FirePointPosition firePoint;
     [SerializeField] private GameObject bullet;
     private Rigidbody2D rbody;
-    private Animator animator;
+    public Animator animator;
     
 
     Vector2 lastInputVector = Vector2.up;
@@ -69,12 +69,18 @@ public class Character : MonoBehaviour
         CharacterStats.instance.CharacterShooted();
         firePoint.SetCurrentPosition(lastInputVector);
         Instantiate(bullet, firePoint.transform.position, firePoint.transform.rotation).GetComponent<Bullet>().SetBulletDirection(lastInputVector);
+        AudioManager.instance.Play("PlayerShot");
     }
 
     public void ReceiveDamage(int damageAmount)
     {
         CharacterStats.instance.HealthPoint = CharacterStats.instance.HealthPoint - damageAmount;
         CharacterStats.instance.onHeatlhChanged();
+    }
+
+    public void OnDestroyAnimation()
+    {
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private IEnumerator NoMoreDiagonal()
@@ -97,15 +103,37 @@ public class Character : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    private bool isPlaying = false;
     private void Update()
     {
-        state.CurrentState.HandleInput();
+        if (state.CurrentState != null)
+        {
+            state.CurrentState.HandleInput();
 
-        state.CurrentState.LogicUpdate();
+            state.CurrentState.LogicUpdate();
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Run"))
+        {
+            if (!isPlaying)
+            {
+                isPlaying = true;
+                AudioManager.instance.Play("Walk");
+            } 
+        } else
+        {
+            if (isPlaying)
+            {
+                AudioManager.instance.Stop("Walk");
+                isPlaying = false;
+            }
+        }
     }
 
     private void FixedUpdate()
     {
-        state.CurrentState.PhysicsUpdate();
+        if (state.CurrentState != null)
+        {
+            state.CurrentState.PhysicsUpdate();
+        }
     }
 }

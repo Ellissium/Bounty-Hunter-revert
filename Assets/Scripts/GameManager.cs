@@ -7,12 +7,14 @@ public class GameManager : MonoBehaviour
     
     public static GameManager instance = null;
     public GameObject player;
-
+    public int countOfEnemies;
+    private bool wasExploded = false;
     public static GameManager Instance { get { return instance; } }
 
 
     private void Awake()
     {
+        AudioManager.instance.Stop("MenuMusic");
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
@@ -21,11 +23,12 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        AudioManager.instance.Play("GameMusic");
     }
 
     private void InitializeGameManager()
     {
-        // TODO: When manager has been initialized   
+        countOfEnemies = 0;
     }
 
     private void Update()
@@ -36,6 +39,16 @@ public class GameManager : MonoBehaviour
             CharacterStats.instance.ReloadAmmo();
             CharacterStats.instance.onAmmoChanged();
             Debug.Log(instance == null);
+        }
+        if (CharacterStats.instance.HealthPoint <= 0)
+        {
+            player.GetComponent<Character>().state.ChangeState(null);
+            player.GetComponent<Character>().animator.Play("Destroy");
+            if (!wasExploded)
+            {
+                AudioManager.instance.Play("Explosion");
+                wasExploded = true;
+            }
         }
     }
 }

@@ -153,12 +153,14 @@ public class NPC : MonoBehaviour
             Destroy(temp, 1f);
             CharacterStats.instance.Money -= 10;
             CharacterStats.instance.AmmoReload += 1;
-            CharacterStats.instance.onAmmoChanged();   
+            CharacterStats.instance.onAmmoChanged();
+            AudioManager.instance.Play("Buy");
         }
         else if (Input.GetKeyDown(KeyCode.E) && repeatingText == false)
         {
             repeatingText = true;
             StartCoroutine(moneyDisplaying.DrawNoMoney());
+            AudioManager.instance.Play("Cancel");
         }
        
     }
@@ -178,17 +180,20 @@ public class NPC : MonoBehaviour
                 CharacterStats.instance.onHeatlhChanged();
                 moneyDisplaying.DrawMoneyStats();
                 Debug.Log(CharacterStats.instance.HealthPoint);
+                AudioManager.instance.Play("Buy");
             }
             else if (Input.GetKeyDown(KeyCode.E) && maxHealthText == false)
             {
                 maxHealthText = true;
                 StartCoroutine(healthpointDisplaying.DrawMaxHealth());
+                AudioManager.instance.Play("Cancel");
             }
         }
         else if (Input.GetKeyDown(KeyCode.E) && repeatingText == false)
         {
             repeatingText = true;
             StartCoroutine(moneyDisplaying.DrawNoMoney());
+            AudioManager.instance.Play("Cancel");
         }
     }
 

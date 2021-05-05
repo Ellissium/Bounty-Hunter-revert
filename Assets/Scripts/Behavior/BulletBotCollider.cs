@@ -11,6 +11,8 @@ public class BulletBotCollider : MonoBehaviour
             Destroy(collision.gameObject);
             StartCoroutine(MakeRed());
             CharacterStats.instance.HealthPoint -= 1;
+            if (CharacterStats.instance.HealthPoint > 0) 
+                AudioManager.instance.Play("PlayerDamage");
             CharacterStats.instance.onHeatlhChanged();
         }
     }

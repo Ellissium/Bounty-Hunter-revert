@@ -12,6 +12,7 @@ public class BulletPlayerCollider : MonoBehaviour
         {
             Destroy(collision.gameObject);
             enemy.GetComponent<Enemy>().HealthPoint -= 1;
+            AudioManager.instance.Play("Damage");
             StartCoroutine(MakeRed());
         }
     }

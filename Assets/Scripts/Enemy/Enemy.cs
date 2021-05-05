@@ -9,13 +9,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] public GameObject bullet;
     public EnemyPatrollingState patrollingState;
     public Transform firePoint;
+    public EnemiesAmountDisplaying enemiesAmountDisplaying;
     public EnemyAttackState attackState;
     protected AILerp ailerp;
     protected AIDestinationSetter destinationSetter;
     protected Seeker seeker;
     [SerializeField] private GameObject animateEnemy;
     private Transform patrolTarget;
-
+    private bool wasExploded = false;
     public Animator EnemyAnimator { get; private set; }
     public Vector2 EnemySpawnPosition { get; private set; }
     public StateMachine State { get; private set; }
@@ -36,6 +37,8 @@ public class Enemy : MonoBehaviour
 
     public void Start()
     {
+        GameManager.instance.countOfEnemies++;
+        enemiesAmountDisplaying.DrawAmountOfEnemies();
         ailerp = GetComponent<AILerp>();
         destinationSetter = GetComponent<AIDestinationSetter>();
         seeker = GetComponent<Seeker>();
@@ -58,6 +61,12 @@ public class Enemy : MonoBehaviour
         else
         {
             EnemyAnimator.Play("CoffinDestroy");
+            EnemyAILerp.speed = 0;
+            if (!wasExploded)
+            {
+                AudioManager.instance.Play("Explosion");
+                wasExploded = true;
+            }
         }
     }
 
@@ -76,9 +85,12 @@ public class Enemy : MonoBehaviour
     {
         GameObject instanceBullet = Instantiate(bullet, firePoint.transform.position,firePoint.transform.rotation);
         instanceBullet.GetComponent<BulletBot>().SetBulletDirection(direction);
+        AudioManager.instance.PlayNew("EnemyShot");
     }
     public void OnEnemyDestroy()
     {
+        GameManager.instance.countOfEnemies--;
+        enemiesAmountDisplaying.DrawAmountOfEnemies();
         Destroy(transform.parent.gameObject);
     }
 }

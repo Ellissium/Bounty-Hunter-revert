@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private void Awake()
+    {
+        AudioManager.instance.Play("MenuMusic");
+    }
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("MikloshScene");
     }
 
     public void ExitGame() 
