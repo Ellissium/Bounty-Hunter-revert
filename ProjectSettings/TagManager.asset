@@ -6,6 +6,8 @@ TagManager:
   tags:
   - LootBoxBullet
   - LootBoxMoney
+  - ButtonText
+  - DefaultText
   layers:
   - Default
   - TransparentFX

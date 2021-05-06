@@ -1,43 +1,31 @@
 fileFormatVersion: 2
-guid: d32f135bf9efbee4083f014f1e405e4e
+guid: eb0195fc18a28da499535b5cea1ae241
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6182443410152869186
-    second: MainMenuButtons_0
+      213: 5503460646655229670
+    second: Flags_0
   - first:
-      213: -3274239917416431365
-    second: MainMenuButtons_1
+      213: -4537281551234122163
+    second: Flags_1
   - first:
-      213: -4084990643401607137
-    second: MainMenuButtons_2
+      213: -832950750342307448
+    second: Flags_2
   - first:
-      213: 7514338990341422671
-    second: MainMenuButtons_3
+      213: -8826277111835509526
+    second: Flags_3
   - first:
-      213: -6380436368723242459
-    second: MainMenuButtons_4
+      213: -5947672368319390862
+    second: Flags_4
   - first:
-      213: 6626107364307247444
-    second: MainMenuButtons_5
+      213: 150133700988709528
+    second: Flags_5
   - first:
-      213: -8161154217084563648
-    second: MainMenuButtons_6
+      213: -3052584668763156646
+    second: Flags_6
   - first:
-      213: -7920201597797747234
-    second: MainMenuButtons_7
-  - first:
-      213: 51792382003104765
-    second: MainMenuButtons_8
-  - first:
-      213: 8578991572074229597
-    second: MainMenuButtons_9
-  - first:
-      213: 4472062161930831116
-    second: MainMenuButtons_10
-  - first:
-      213: -6726785326983674887
-    second: MainMenuButtons_11
+      213: -2775086590558178504
+    second: Flags_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MainMenuButtons_0
+      name: Flags_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 70
-        width: 86
-        height: 34
+        y: 75
+        width: 38
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,20 +129,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24dcd1a86837cc550800000000000000
-      internalID: 6182443410152869186
+      spriteID: 6eef93fac48306c40800000000000000
+      internalID: 5503460646655229670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuButtons_1
+      name: Flags_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 35
-        width: 86
-        height: 34
+        x: 39
+        y: 75
+        width: 38
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +150,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf04dfc84209f82d0800000000000000
-      internalID: -3274239917416431365
+      spriteID: d4eb1ccf7765801c0800000000000000
+      internalID: -4537281551234122163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuButtons_2
+      name: Flags_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 50
+        width: 38
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 881a37aa4b3c074f0800000000000000
+      internalID: -832950750342307448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flags_3
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 50
+        width: 38
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aec32ebfab3c28580800000000000000
+      internalID: -8826277111835509526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flags_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 25
+        width: 38
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b9aed3e7f957da0800000000000000
+      internalID: -5947672368319390862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flags_5
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 25
+        width: 38
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a2f3c3ec1651200800000000000000
+      internalID: 150133700988709528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flags_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 86
-        height: 34
+        width: 38
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,8 +255,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f18b04d27a23f47c0800000000000000
-      internalID: -4084990643401607137
+      spriteID: a5f8193ca6a03a5d0800000000000000
+      internalID: -3052584668763156646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flags_7
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 38
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83374dce279ec79d0800000000000000
+      internalID: -2775086590558178504
       vertices: []
       indices: 
       edges: []

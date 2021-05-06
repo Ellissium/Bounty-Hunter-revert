@@ -17,6 +17,8 @@ public class NPC : MonoBehaviour
 
     [SerializeField] private Sprite yellowButtonSprite;
     [SerializeField] private Sprite redButtonSprite;
+
+    [SerializeField] private GameObject localizationType;
     private SpriteRenderer boardSprite;
     private SpriteRenderer buttonSprite;
 
@@ -45,7 +47,6 @@ public class NPC : MonoBehaviour
         buttonSprite.material.color = colorButton;
         startButtonPos = new Vector3(getKeyE.transform.position.x, getKeyE.transform.position.y, getKeyE.transform.position.z);
     }
-
 
     public IEnumerator Visible() 
     {
@@ -179,7 +180,6 @@ public class NPC : MonoBehaviour
                 CharacterStats.instance.onHeatlhChanged();
                 CharacterStats.instance.onHeatlhChanged();
                 moneyDisplaying.DrawMoneyStats();
-                Debug.Log(CharacterStats.instance.HealthPoint);
                 AudioManager.instance.Play("Buy");
             }
             else if (Input.GetKeyDown(KeyCode.E) && maxHealthText == false)
