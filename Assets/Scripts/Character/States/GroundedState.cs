@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundedState : State
 {
-    protected float movementSpeed = 0.75f;
+    public float movementSpeed = 0.75f;
 
     public Vector2 inputVector;
 

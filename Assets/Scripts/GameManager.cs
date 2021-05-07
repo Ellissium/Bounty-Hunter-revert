@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public int countOfEnemies;
     private bool wasExploded = false;
+    public List<long> recordsInSeconds;
     public static GameManager Instance { get { return instance; } }
 
 
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
+            recordsInSeconds = new List<long>();
         }
         AudioManager.instance.Play("GameMusic");
     }
@@ -42,8 +44,10 @@ public class GameManager : MonoBehaviour
         }
         if (CharacterStats.instance.HealthPoint <= 0)
         {
+            player.GetComponent<Character>().grounding.movementSpeed = 0f;
             player.GetComponent<Character>().state.ChangeState(null);
             player.GetComponent<Character>().animator.Play("Destroy");
+            player.GetComponent<Character>().rbody.velocity = Vector2.zero;
             if (!wasExploded)
             {
                 AudioManager.instance.Play("Explosion");
