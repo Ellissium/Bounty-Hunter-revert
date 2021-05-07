@@ -424,6 +424,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1687536878}
+        m_TargetAssemblyTypeName: TextColor, Assembly-CSharp
+        m_MethodName: SetNotActiveText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &69991537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3318,6 +3330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e190837c644284cb89b503fd5a411f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  localization: {fileID: 1104039946}
   audioMixer: {fileID: 24100000, guid: cd21faeac570af3458fe1e80e41e9815, type: 2}
 --- !u!114 &1104039946
 MonoBehaviour:
@@ -4601,8 +4614,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -2000074328506319406, guid: f95f87921b13c2347950c88428f304a6, type: 3}
-    m_PressedSprite: {fileID: 3984689875941982768, guid: f95f87921b13c2347950c88428f304a6, type: 3}
+    m_HighlightedSprite: {fileID: 7577122591343758472, guid: f95f87921b13c2347950c88428f304a6, type: 3}
+    m_PressedSprite: {fileID: -442712515820720878, guid: f95f87921b13c2347950c88428f304a6, type: 3}
     m_SelectedSprite: {fileID: -1114308800010773812, guid: f95f87921b13c2347950c88428f304a6, type: 3}
     m_DisabledSprite: {fileID: -1114308800010773812, guid: f95f87921b13c2347950c88428f304a6, type: 3}
   m_AnimationTriggers:
@@ -4732,7 +4745,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7577122591343758472, guid: f95f87921b13c2347950c88428f304a6, type: 3}
+  m_Sprite: {fileID: -4708354672982258178, guid: f95f87921b13c2347950c88428f304a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5079,10 +5092,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -4861142939754238617, guid: f95f87921b13c2347950c88428f304a6, type: 3}
-    m_PressedSprite: {fileID: -2844001220262735654, guid: f95f87921b13c2347950c88428f304a6, type: 3}
-    m_SelectedSprite: {fileID: -4708354672982258178, guid: f95f87921b13c2347950c88428f304a6, type: 3}
-    m_DisabledSprite: {fileID: -4708354672982258178, guid: f95f87921b13c2347950c88428f304a6, type: 3}
+    m_HighlightedSprite: {fileID: 7577122591343758472, guid: f95f87921b13c2347950c88428f304a6, type: 3}
+    m_PressedSprite: {fileID: -442712515820720878, guid: f95f87921b13c2347950c88428f304a6, type: 3}
+    m_SelectedSprite: {fileID: -1114308800010773812, guid: f95f87921b13c2347950c88428f304a6, type: 3}
+    m_DisabledSprite: {fileID: -1114308800010773812, guid: f95f87921b13c2347950c88428f304a6, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -5210,7 +5223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -442712515820720878, guid: f95f87921b13c2347950c88428f304a6, type: 3}
+  m_Sprite: {fileID: -4708354672982258178, guid: f95f87921b13c2347950c88428f304a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5710,6 +5723,30 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1739657600}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1739657603}
+        m_TargetAssemblyTypeName: TextColor, Assembly-CSharp
+        m_MethodName: SetActiveText
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
