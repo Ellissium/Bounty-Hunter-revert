@@ -1,43 +1,25 @@
 fileFormatVersion: 2
-guid: d32f135bf9efbee4083f014f1e405e4e
+guid: f379c58192e0da74a9ebb73c18cee0aa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6182443410152869186
-    second: MainMenuButtons_0
+      213: -3650138825923326190
+    second: Dropdown_0
   - first:
-      213: -3274239917416431365
-    second: MainMenuButtons_1
+      213: -5666661449824619388
+    second: Dropdown_1
   - first:
-      213: -4084990643401607137
-    second: MainMenuButtons_2
+      213: 5674217320682797469
+    second: Dropdown_2
   - first:
-      213: 7514338990341422671
-    second: MainMenuButtons_3
+      213: -4593290879677774881
+    second: Dropdown_3
   - first:
-      213: -6380436368723242459
-    second: MainMenuButtons_4
+      213: 5751784736290591129
+    second: Dropdown_4
   - first:
-      213: 6626107364307247444
-    second: MainMenuButtons_5
-  - first:
-      213: -8161154217084563648
-    second: MainMenuButtons_6
-  - first:
-      213: -7920201597797747234
-    second: MainMenuButtons_7
-  - first:
-      213: 51792382003104765
-    second: MainMenuButtons_8
-  - first:
-      213: 8578991572074229597
-    second: MainMenuButtons_9
-  - first:
-      213: 4472062161930831116
-    second: MainMenuButtons_10
-  - first:
-      213: -6726785326983674887
-    second: MainMenuButtons_11
+      213: -4774008279591966959
+    second: Dropdown_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,64 +109,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MainMenuButtons_0
+      name: Dropdown_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 70
-        width: 86
-        height: 34
+        y: 233
+        width: 160
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24dcd1a86837cc550800000000000000
-      internalID: 6182443410152869186
+      spriteID: 21f8afbb31a185dc0800000000000000
+      internalID: -3650138825923326190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuButtons_1
+      name: Dropdown_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 35
-        width: 86
-        height: 34
+        y: 209
+        width: 160
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf04dfc84209f82d0800000000000000
-      internalID: -3274239917416431365
+      spriteID: 484bdc44f69fb51b0800000000000000
+      internalID: -5666661449824619388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuButtons_2
+      name: Dropdown_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 86
-        height: 34
+        y: 185
+        width: 160
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f18b04d27a23f47c0800000000000000
-      internalID: -4084990643401607137
+      spriteID: d99baa1079edebe40800000000000000
+      internalID: 5674217320682797469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dropdown_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd3c3cef74a5140c0800000000000000
+      internalID: -4593290879677774881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dropdown_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 9
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9915d1f4eb172df40800000000000000
+      internalID: 5751784736290591129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dropdown_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 117a52473c05fbdb0800000000000000
+      internalID: -4774008279591966959
       vertices: []
       indices: 
       edges: []
