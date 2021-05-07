@@ -7,7 +7,6 @@ public class MainMenu : MonoBehaviour
 {
     private void Awake()
     {
-        AudioManager.instance.Play("MenuMusic");
     }
     public void PlayGame()
     {
