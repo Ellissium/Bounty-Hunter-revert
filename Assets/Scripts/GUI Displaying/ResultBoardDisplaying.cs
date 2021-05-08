@@ -23,6 +23,8 @@ public class ResultBoardDisplaying : MonoBehaviour
         {
             if (!wasPlayed)
             {
+                GameManager.instance.player.GetComponent<Character>().record = false;
+                GameManager.instance.recordsInSeconds.Add(GameManager.instance.player.GetComponent<Character>().seconds);
                 AudioManager.instance.Play("GameOver");
                 wasPlayed = true;
             }
@@ -35,6 +37,8 @@ public class ResultBoardDisplaying : MonoBehaviour
         {
             if (!wasPlayed)
             {
+                GameManager.instance.player.GetComponent<Character>().record = false;
+                GameManager.instance.recordsInSeconds.Add(GameManager.instance.player.GetComponent<Character>().seconds);
                 AudioManager.instance.Play("Win");
                 wasPlayed = true;
             }

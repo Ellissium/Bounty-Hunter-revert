@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class Character : MonoBehaviour
 
     [SerializeField] private FirePointPosition firePoint;
     [SerializeField] private GameObject bullet;
-    private Rigidbody2D rbody;
+    public Rigidbody2D rbody;
     public Animator animator;
     
 
@@ -21,6 +23,11 @@ public class Character : MonoBehaviour
 
     public Animator CharacterAnimator { get { return animator; } }
     public Rigidbody2D Rbody { get { return rbody; } }
+
+    public Text timer;
+    public bool record = false;
+    public long seconds;
+
 
     public void Move(Vector2 inputVector, float speed)
     {
@@ -96,6 +103,9 @@ public class Character : MonoBehaviour
         grounding = new GroundedState(gameObject, state);
         shooting = new ShootingState(gameObject, state);
         state.Initialize(grounding);
+        seconds = 0;
+        record = true;
+        StartCoroutine(AddValueEachSecond());
     }
     private void Awake()
     {
@@ -128,7 +138,16 @@ public class Character : MonoBehaviour
             }
         }
     }
-
+    private IEnumerator AddValueEachSecond()
+    {
+        while (record)
+        {
+            yield return new WaitForSeconds(1);
+            seconds++;
+            TimeSpan t = TimeSpan.FromSeconds(seconds);
+            timer.text = t.ToString(@"mm\:ss");
+        }
+    }
     private void FixedUpdate()
     {
         if (state.CurrentState != null)
