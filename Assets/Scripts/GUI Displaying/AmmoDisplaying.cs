@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class AmmoDisplaying : MonoBehaviour
 {
+    [SerializeField] private LocalizationMainScene localizationMainScene;
     [SerializeField] private Image ammoImage;
     [SerializeField] private Text ammoAmount;
     [SerializeField] private GameObject background;
@@ -59,7 +60,18 @@ public class AmmoDisplaying : MonoBehaviour
             {
                 background.GetComponent<Image>().sprite = longBackground;
                 background.GetComponent<RectTransform>().sizeDelta = new Vector2(76f, 17f);
-                currentAmmoText.text = "No Ammo!";
+                if (localizationMainScene.Localizationtype == "en") 
+                {
+                    currentAmmoText.fontSize = 14;
+                    currentAmmoText.fontStyle = FontStyle.Normal;
+                    currentAmmoText.text = "No Ammo!"; 
+                }
+                else
+                {
+                    currentAmmoText.fontSize = 7;
+                    currentAmmoText.fontStyle = FontStyle.Bold;
+                    currentAmmoText.text = "Õ≈Ã¿™ Õ¿¡ŒØ¬";
+                }
             }
             yield return new WaitForSeconds(1f);
             if (CharacterStats.instance.AmmoInCylinder == 0)

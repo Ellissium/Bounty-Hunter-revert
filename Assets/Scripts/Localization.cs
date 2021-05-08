@@ -17,37 +17,44 @@ public class Localization : MonoBehaviour
     [SerializeField] private Text exitText;
     [SerializeField] private Text itemText;
     [SerializeField] private Text labelText;
-
-
-    /* [SerializeField] private Text highText;
- */
+    [SerializeField] private Text aboutUsMenuText;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject dropdawn;
-    
     [SerializeField] private GameObject template;
+
     private GameObject[] buttonsText;
     private GameObject[] defaultsText;
-
     private string localizationType;
-
     private int itemIndex;
+
     public string Localizationtype { get { return localizationType; } set { localizationType = value; } }
+
+    public int ItemIndex { get { return itemIndex; } set { itemIndex = value; } }
 
     private void Start()
     {
         buttonsText = GameObject.FindGameObjectsWithTag("ButtonText");
         defaultsText = GameObject.FindGameObjectsWithTag("DefaultText");
+
         settingsMenu.SetActive(false);
         template.SetActive(false);
 
-        itemIndex = 0;
-        localizationType = "en";
+        PlayerInfo loadedData = DataSaver.loadData<PlayerInfo>("players");
+        itemIndex = loadedData.indexSave;
+        localizationType = loadedData.localizationTypeSave;
+
         SetLocalization();
+        SetIndex(itemIndex);
     }
 
     public void SetIndex(int index) 
     {
         itemIndex = index;
+    }
+
+    public void SetLocalizationType(string localization)
+    {
+        localizationType = localization;
     }
 
     public void SetLocalization()
@@ -66,8 +73,6 @@ public class Localization : MonoBehaviour
                 defaultText.GetComponent<Text>().fontStyle = FontStyle.Bold;
             }
 
-         
-           
             dropdawn.GetComponent<Dropdown>().options[0].text = "ƒ”∆≈   Õ»«‹ ¿";
             dropdawn.GetComponent<Dropdown>().options[1].text = "Õ»«‹ ¿";
             dropdawn.GetComponent<Dropdown>().options[2].text = "—≈–≈ƒÕﬂ";
@@ -80,6 +85,7 @@ public class Localization : MonoBehaviour
             labelText.text = dropdawn.GetComponent<Dropdown>().options[itemIndex].text;
             labelText.fontSize =14;
             labelText.fontStyle = FontStyle.Bold;
+
             muteSoundText.text = "¬ À/¬» À   «¬” ";
             soundVolumeText.text = "√”◊Õ≤—“‹   «¬” ”";
             graphicsQualityText.text = "ﬂ ≤—“‹   √–¿‘≤ »";
@@ -90,9 +96,8 @@ public class Localization : MonoBehaviour
             settingsText.text = "Õ¿À¿ÿ“”¬¿ÕÕﬂ";
             aboutUsText.text = "œ–Œ Õ¿—";
             exitText.text = "¬»’≤ƒ";
-        
+            aboutUsMenuText.text = "Õ¿œ»ÿ»   “”“";
         }
-
         else if (localizationType == "en")
         {
             foreach (GameObject buttonText in buttonsText)
@@ -106,7 +111,20 @@ public class Localization : MonoBehaviour
                 defaultText.GetComponent<Text>().fontSize = 20;
                 defaultText.GetComponent<Text>().fontStyle = FontStyle.Normal;
             }
-            
+       
+            dropdawn.GetComponent<Dropdown>().options[0].text = "Very   Low";
+            dropdawn.GetComponent<Dropdown>().options[1].text = "Low";
+            dropdawn.GetComponent<Dropdown>().options[2].text = "Medium";
+            dropdawn.GetComponent<Dropdown>().options[3].text = "High";
+            dropdawn.GetComponent<Dropdown>().options[4].text = "Very   High";
+            dropdawn.GetComponent<Dropdown>().options[5].text = "Ultra";
+            itemText.fontSize = 18;
+            itemText.fontStyle = FontStyle.Normal;
+
+            labelText.text = dropdawn.GetComponent<Dropdown>().options[itemIndex].text;
+            labelText.fontSize = 18;
+            labelText.fontStyle = FontStyle.Normal;
+
             muteSoundText.text = "Mute/Unmute   Sound";
             soundVolumeText.text = "Sound   Volume";
             graphicsQualityText.text = "Graphics   Quality";
@@ -117,17 +135,7 @@ public class Localization : MonoBehaviour
             settingsText.text = "Settings";
             aboutUsText.text = "About   Us";
             exitText.text = "Exit";
-            dropdawn.GetComponent<Dropdown>().options[0].text = "Very   Low";
-            dropdawn.GetComponent<Dropdown>().options[1].text = "Low";
-            dropdawn.GetComponent<Dropdown>().options[2].text = "Medium";
-            dropdawn.GetComponent<Dropdown>().options[3].text = "High";
-            dropdawn.GetComponent<Dropdown>().options[4].text = "Very   High";
-            dropdawn.GetComponent<Dropdown>().options[5].text = "Ultra";
-            itemText.fontSize = 18;
-            itemText.fontStyle = FontStyle.Normal;
-            labelText.text = dropdawn.GetComponent<Dropdown>().options[itemIndex].text;
-            labelText.fontSize = 18;
-            labelText.fontStyle = FontStyle.Normal;
+            aboutUsMenuText.text = "Write   Here";
         }
     }
 }

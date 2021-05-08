@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HealthpointDisplaying : MonoBehaviour
 {
+    [SerializeField] private LocalizationMainScene localizationMainScene;
     [SerializeField] private Text healthAmount;
     [SerializeField] private Image healthPoint;
     [SerializeField] private NPC npc;
@@ -60,7 +61,18 @@ public class HealthpointDisplaying : MonoBehaviour
 
         for (int i = 1; i < 4; i++)
         {
-            currentHealthText.text = "You Have Max Health";
+            if (localizationMainScene.Localizationtype == "en")
+            {
+                currentHealthText.fontSize = 14;
+                currentHealthText.fontStyle = FontStyle.Normal;
+                currentHealthText.text = "You Have Max Health";
+            }
+            else
+            {
+                currentHealthText.fontSize = 8;
+                currentHealthText.fontStyle = FontStyle.Bold;
+                currentHealthText.text = "Ó ÂÀÑ ÌÀÊÑÈÌÀËÜÍÅ ÇÄÎÐÎÂ'ß";
+            }
             yield return new WaitForSeconds(1f);
             currentHealthText.text = "";
             yield return new WaitForSeconds(0.5f);

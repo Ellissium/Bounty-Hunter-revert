@@ -55,6 +55,6 @@ public class ResultBoardDisplaying : MonoBehaviour
     private IEnumerator LoadMenu()
     {
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene("MikloshMainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 }

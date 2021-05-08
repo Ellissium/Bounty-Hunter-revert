@@ -7,10 +7,12 @@ public class MainMenu : MonoBehaviour
 {
     private void Awake()
     {
+        AudioManager.instance.Play("MenuMusic");
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene("MikloshScene");
+        SceneManager.LoadScene("EllissiumScene");
+      
     }
 
     public void ExitGame() 

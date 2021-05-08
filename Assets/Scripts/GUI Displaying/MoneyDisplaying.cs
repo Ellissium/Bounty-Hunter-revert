@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MoneyDisplaying : MonoBehaviour
 {
+    [SerializeField] private LocalizationMainScene localizationMainScene;
     [SerializeField] private Text moneyAmount;
     [SerializeField] private NPC npc;
     [SerializeField] private GameObject background;
@@ -41,7 +42,19 @@ public class MoneyDisplaying : MonoBehaviour
             {
                 background.GetComponent<Image>().sprite = longBackground;
                 background.GetComponent<RectTransform>().sizeDelta = new Vector2(140f, 17f);
-                currentMoneyText.text = "Not Enough Money!";
+
+                if (localizationMainScene.Localizationtype == "en")
+                {
+                    currentMoneyText.fontSize = 14;
+                    currentMoneyText.fontStyle = FontStyle.Normal;
+                    currentMoneyText.text = "Not Enough Money!";
+                }
+                else
+                {
+                    currentMoneyText.fontSize = 10;
+                    currentMoneyText.fontStyle = FontStyle.Bold;
+                    currentMoneyText.text = "Õ≈ ƒŒ—“¿“Õ‹Œ √–Œÿ≈…!";
+                }
                 yield return new WaitForSeconds(1f);
             }
          
