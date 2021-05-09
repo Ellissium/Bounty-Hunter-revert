@@ -161,7 +161,7 @@ public class Localization : MonoBehaviour
             settingsText.text = "Settings";
             aboutUsText.text = "About   Us";
             exitText.text = "Exit";
-            aboutUsMenuText.text = "Write   Here";
+            aboutUsMenuText.text = "This   project   was   developed   as   a   course   project   for   the   educational   institution   \"Petro Mohyla Black Sea   National University\",   a   student   of   group   No.   202,   Mykola   Tkachenko.   This   product   is   not   a   commercial   product   and   is   for   scientific   purposes   only.";
             walkText.text = "Walk";
             shootText.text = "Shoot";
             pauseText.text = "Pause";

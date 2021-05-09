@@ -48,7 +48,7 @@ public class EnemyPatrollingState : State
                 enemy.StartCoroutine(CoroutineChangeTargetPosition());
             }
         }
-        RaycastHit2D hitN = Physics2D.Raycast(enemy.transform.position, Vector2.up, 2f);
+        RaycastHit2D hitN = Physics2D.Raycast(new Vector2(enemy.transform.position.x, enemy.transform.position.y+0.1f), Vector2.up, 2f);
         if (hitN.collider != null)
         {
             if (hitN.collider.GetComponent<BulletBotCollider>() != null)
@@ -60,7 +60,7 @@ public class EnemyPatrollingState : State
                 enemy.State.ChangeState(enemy.attackState);
             }
         }
-        RaycastHit2D hitS = Physics2D.Raycast(enemy.transform.position, Vector2.down, 2f);
+        RaycastHit2D hitS = Physics2D.Raycast(new Vector2(enemy.transform.position.x, enemy.transform.position.y + 0.1f), Vector2.down, 2f);
         if (hitS.collider != null)
         {
             if (hitS.collider.GetComponent<BulletBotCollider>() != null)
@@ -72,7 +72,7 @@ public class EnemyPatrollingState : State
                 enemy.State.ChangeState(enemy.attackState);
             }
         }
-        RaycastHit2D hitE = Physics2D.Raycast(enemy.transform.position, Vector2.right, 2f);
+        RaycastHit2D hitE = Physics2D.Raycast(new Vector2(enemy.transform.position.x, enemy.transform.position.y + 0.1f), Vector2.right, 2f);
         if (hitE.collider != null)
         {
             if (hitE.collider.GetComponent<BulletBotCollider>() != null)
@@ -84,7 +84,7 @@ public class EnemyPatrollingState : State
                 enemy.State.ChangeState(enemy.attackState);
             }
         }
-        RaycastHit2D hitW = Physics2D.Raycast(enemy.transform.position, Vector2.left, 2f);
+        RaycastHit2D hitW = Physics2D.Raycast(new Vector2(enemy.transform.position.x, enemy.transform.position.y + 0.1f), Vector2.left, 2f);
         if (hitW.collider != null)
         {
             if (hitW.collider.GetComponent<BulletBotCollider>() != null)
