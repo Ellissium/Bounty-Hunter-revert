@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,11 +20,12 @@ public class SettingsMenu : MonoBehaviour
     private float volume;
     private int qualityIndex;
     private bool soundPause;
+    private PlayerInfo loadedData;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
-        PlayerInfo loadedData = DataSaver.loadData<PlayerInfo>("players");
+        loadedData = DataSaver.loadData<PlayerInfo>("players");
         volume = loadedData.volumeSave;
         qualityIndex = loadedData.qualityIndexSave;
         soundPause = loadedData.soundPauseSave;
@@ -87,15 +89,23 @@ public class SettingsMenu : MonoBehaviour
 
     public void OnDestroy()
     {
-        PlayerInfo saveData = new PlayerInfo
+        foreach(Sound s in AudioManager.instance.sounds)
+        {
+            if (s.source != null)
+            {
+                s.source.Stop();
+            }
+        }
+            PlayerInfo saveData = new PlayerInfo
         {
             volumeSave = volume,
             qualityIndexSave = qualityIndex,
             localizationTypeSave = localization.Localizationtype,
             indexSave = localization.ItemIndex,
-            soundPauseSave = soundPause
+            soundPauseSave = soundPause,
+            lastRecordSave = loadedData.lastRecordSave,
+            bestRecordSave = loadedData.bestRecordSave
         };
-       
-        DataSaver.saveData(saveData, "players");
+            DataSaver.saveData(saveData, "players");
     }
 }

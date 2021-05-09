@@ -127,8 +127,32 @@ public class PauseMenu : MonoBehaviour
             localizationTypeSave = localizationMainScene.Localizationtype,
             indexSave = localizationMainScene.ItemIndex,
             soundPauseSave = soundPause,
-            recordsSave = GameManager.instance.recordsInSeconds 
         };
-            DataSaver.saveData(saveData, "players");
+        PlayerInfo oldData = DataSaver.loadData<PlayerInfo>("players");
+        if (GameManager.instance.countOfEnemies == 0)
+        {
+            saveData.lastRecordSave = GameManager.instance.recordsInSeconds;
+            if (oldData == null)
+            {
+                saveData.bestRecordSave = saveData.lastRecordSave;
+            }
+            else
+            {
+                if (oldData.bestRecordSave == 0 || oldData.bestRecordSave > saveData.lastRecordSave)
+                {
+                    saveData.bestRecordSave = saveData.lastRecordSave;
+                }
+                else
+                {
+                    saveData.bestRecordSave = oldData.bestRecordSave;
+                }
+            }
+        } else
+        {
+            saveData.lastRecordSave = oldData.lastRecordSave;
+            saveData.bestRecordSave = oldData.bestRecordSave;
+        }
+         DataSaver.saveData(saveData, "players");
+            
     }
 }

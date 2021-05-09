@@ -3,9 +3,11 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class Localization : MonoBehaviour
 {
+    public PlayerInfo loadedData;
     [SerializeField] private Text muteSoundText;
     [SerializeField] private Text soundVolumeText;
     [SerializeField] private Text graphicsQualityText;
@@ -49,7 +51,12 @@ public class Localization : MonoBehaviour
         settingsMenu.SetActive(false);
         template.SetActive(false);
 
-        PlayerInfo loadedData = DataSaver.loadData<PlayerInfo>("players");
+        loadedData = DataSaver.loadData<PlayerInfo>("players");
+        if (loadedData == null)
+        {
+            loadedData = new PlayerInfo();
+            DataSaver.saveData(loadedData, "players");
+        }
         itemIndex = loadedData.indexSave;
         localizationType = loadedData.localizationTypeSave;
         /*lasttime = Mathf.Min(loadedData.recordsSave);*/
@@ -115,6 +122,7 @@ public class Localization : MonoBehaviour
             interactionText.text = "ÂÇÀªÌÎÄ²ß";
             bestTimeText.text = "ÍÀÉÊÐÀÙÈÉ   ×ÀÑ:";
             lastTimeText.text = "ÎÑÒÀÍÍ²É   ×ÀÑ:";
+            DrawTextInfo();
         }
         else if (localizationType == "en")
         {
@@ -160,6 +168,28 @@ public class Localization : MonoBehaviour
             interactionText.text = "Interaction";
             bestTimeText.text = "Best   Time:";
             lastTimeText.text = "Last   Time:";
+            DrawTextInfo();
+        }
+    }
+    private void DrawTextInfo()
+    {
+        if (loadedData.bestRecordSave == 0)
+        {
+            bestTimeText.text += " -";
+        } 
+        else
+        {
+            TimeSpan t = TimeSpan.FromSeconds(loadedData.bestRecordSave);
+            bestTimeText.text += " " + t.ToString(@"mm\:ss");
+        }
+        if (loadedData.lastRecordSave == 0)
+        {
+            lastTimeText.text += " -";
+        }
+        else
+        {
+            TimeSpan t = TimeSpan.FromSeconds(loadedData.lastRecordSave);
+            lastTimeText.text += " " + t.ToString(@"mm\:ss");
         }
     }
 }

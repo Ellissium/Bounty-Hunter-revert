@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public int countOfEnemies;
     private bool wasExploded = false;
-    public List<long> recordsInSeconds;
+    public long recordsInSeconds;
     public static GameManager Instance { get { return instance; } }
 
 
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
-            recordsInSeconds = new List<long>();
+            recordsInSeconds = 0;
         }
         AudioManager.instance.Play("GameMusic");
     }

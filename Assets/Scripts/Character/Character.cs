@@ -143,7 +143,10 @@ public class Character : MonoBehaviour
         while (record)
         {
             yield return new WaitForSeconds(1);
-            seconds++;
+            if (GameManager.instance.countOfEnemies != 0 && CharacterStats.instance.HealthPoint != 0)
+            {
+                seconds++;
+            }
             TimeSpan t = TimeSpan.FromSeconds(seconds);
             timer.text = t.ToString(@"mm\:ss");
         }

@@ -24,7 +24,7 @@ public class ResultBoardDisplaying : MonoBehaviour
             if (!wasPlayed)
             {
                 GameManager.instance.player.GetComponent<Character>().record = false;
-                GameManager.instance.recordsInSeconds.Add(GameManager.instance.player.GetComponent<Character>().seconds);
+                GameManager.instance.recordsInSeconds = (GameManager.instance.player.GetComponent<Character>().seconds);
                 AudioManager.instance.Play("GameOver");
                 wasPlayed = true;
             }
@@ -38,7 +38,7 @@ public class ResultBoardDisplaying : MonoBehaviour
             if (!wasPlayed)
             {
                 GameManager.instance.player.GetComponent<Character>().record = false;
-                GameManager.instance.recordsInSeconds.Add(GameManager.instance.player.GetComponent<Character>().seconds);
+                GameManager.instance.recordsInSeconds = (GameManager.instance.player.GetComponent<Character>().seconds);
                 AudioManager.instance.Play("Win");
                 wasPlayed = true;
             }
@@ -52,7 +52,7 @@ public class ResultBoardDisplaying : MonoBehaviour
     {
         while(board.rectTransform.position.y > goalPosY)
         {
-            board.rectTransform.position = new Vector3(board.rectTransform.position.x, board.rectTransform.position.y-0.05f, board.rectTransform.position.z);
+            board.rectTransform.position = new Vector3(board.rectTransform.position.x, board.rectTransform.position.y-0.5f*Time.deltaTime, board.rectTransform.position.z);
             yield return new WaitForEndOfFrame();
         }
     }
