@@ -28,6 +28,7 @@ public class Localization : MonoBehaviour
     [SerializeField] private Text bestTimeText;
     [SerializeField] private Text lastTimeText;
     [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private GameObject aboutUsMenu;
     [SerializeField] private GameObject dropdawn;
     [SerializeField] private GameObject template;
 
@@ -50,6 +51,7 @@ public class Localization : MonoBehaviour
 
         settingsMenu.SetActive(false);
         template.SetActive(false);
+        aboutUsMenu.SetActive(false);
 
         loadedData = DataSaver.loadData<PlayerInfo>("players");
         if (loadedData == null)

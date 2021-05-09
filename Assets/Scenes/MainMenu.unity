@@ -756,7 +756,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -830,8 +830,8 @@ RectTransform:
   m_Father: {fileID: 1813638336}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3583,7 +3583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1022386534
 Transform:
   m_ObjectHideFlags: 0
@@ -3910,6 +3910,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d0a17e4db3f0a4daca0ef7528bb69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadedData:
+    lastRecordSave: 0
+    bestRecordSave: 0
+    qualityIndexSave: 0
+    volumeSave: 1
+    localizationTypeSave: en
+    indexSave: 0
+    soundPauseSave: 0
   muteSoundText: {fileID: 17390260}
   soundVolumeText: {fileID: 1464326070}
   graphicsQualityText: {fileID: 2108763767}
@@ -3930,6 +3938,7 @@ MonoBehaviour:
   bestTimeText: {fileID: 317936937}
   lastTimeText: {fileID: 649814350}
   settingsMenu: {fileID: 1300134731}
+  aboutUsMenu: {fileID: 1022386533}
   dropdawn: {fileID: 293691975}
   template: {fileID: 560283140}
 --- !u!1 &1151319873
@@ -4519,7 +4528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1300134732
 Transform:
   m_ObjectHideFlags: 0
@@ -6364,6 +6373,7 @@ GameObject:
   - component: {fileID: 1977304698}
   - component: {fileID: 1977304697}
   - component: {fileID: 1977304696}
+  - component: {fileID: 1977304699}
   m_Layer: 0
   m_Name: BackMainMenu
   m_TagString: Untagged
@@ -6496,6 +6506,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977304694}
   m_CullTransparentMesh: 1
+--- !u!114 &1977304699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977304694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2e4cab33d931c42ab672d394337d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1981820040
 GameObject:
   m_ObjectHideFlags: 0
