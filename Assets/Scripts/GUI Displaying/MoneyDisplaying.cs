@@ -11,15 +11,14 @@ public class MoneyDisplaying : MonoBehaviour
     [SerializeField] private GameObject background;
     [SerializeField] private Sprite shortBackground;
     [SerializeField] private Sprite longBackground;
-    
+    [SerializeField] private Text currentMoneyText;
+
     private int money;
-    private Text currentMoneyText;
-    private Vector3 offset = new Vector3(-50f, -50f, 0);
+    private Vector3 offset = new Vector3(0f, 0f, 0f);
    
     private void Start()
     {
         money = CharacterStats.instance.Money;
-        currentMoneyText = Instantiate(moneyAmount, transform);
         currentMoneyText.rectTransform.position += new Vector3(offset.x, offset.y, offset.z);
         CharacterStats.instance.onAmmoChanged += DrawMoneyStats;
         DrawMoneyStats();
@@ -47,13 +46,13 @@ public class MoneyDisplaying : MonoBehaviour
                 {
                     currentMoneyText.fontSize = 14;
                     currentMoneyText.fontStyle = FontStyle.Normal;
-                    currentMoneyText.text = "Not Enough Money!";
+                    currentMoneyText.text = "Not   Enough   Money!";
                 }
                 else
                 {
                     currentMoneyText.fontSize = 10;
                     currentMoneyText.fontStyle = FontStyle.Bold;
-                    currentMoneyText.text = "Õ≈ ƒŒ—“¿“Õ‹Œ √–Œÿ≈…!";
+                    currentMoneyText.text = "Õ≈   ƒŒ—“¿“Õ‹Œ    Œÿ“≤¬!";
                 }
                 yield return new WaitForSeconds(1f);
             }

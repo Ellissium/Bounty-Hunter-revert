@@ -81,12 +81,6 @@ public class PauseMenu : MonoBehaviour
         {
             AudioListener.pause = true;
             this.soundPause = true;
-
-            foreach (Sound s in AudioManager.instance.sounds)
-            {
-                if (s.source != null)
-                s.source.Stop();
-            }
         }
         else
         {
@@ -132,9 +126,9 @@ public class PauseMenu : MonoBehaviour
             qualityIndexSave = qualityIndex,
             localizationTypeSave = localizationMainScene.Localizationtype,
             indexSave = localizationMainScene.ItemIndex,
-            soundPauseSave = soundPause
+            soundPauseSave = soundPause,
+            recordsSave = GameManager.instance.recordsInSeconds 
         };
-
-        DataSaver.saveData(saveData, "players");
+            DataSaver.saveData(saveData, "players");
     }
 }

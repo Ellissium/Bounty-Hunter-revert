@@ -77,14 +77,12 @@ public class SettingsMenu : MonoBehaviour
         {
             AudioListener.pause = true;
             this.soundPause = true;
-           
         }
         else
         {
             AudioListener.pause = false;
             this.soundPause = false;
         }
-       
     }
 
     public void OnDestroy()

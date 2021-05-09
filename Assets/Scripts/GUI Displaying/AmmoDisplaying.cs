@@ -11,20 +11,18 @@ public class AmmoDisplaying : MonoBehaviour
     [SerializeField] private GameObject background;
     [SerializeField] private Sprite shortBackground;
     [SerializeField] private Sprite longBackground;
-
+    [SerializeField] private Text currentAmmoText;
+    [SerializeField] private Image currentAmmoImage;
     private int ammoInCylinder;
     private int ammoReload;
-    private Vector3 offset = new Vector3(140f,-95f,0);
-    Text currentAmmoText;
+    private Vector3 offset = new Vector3(0f,0f,0f);
 
     private void Start()
     {
         ammoInCylinder = CharacterStats.instance.AmmoInCylinder;
         ammoReload = CharacterStats.instance.AmmoReload;
-        Image currentAmmoImage = Instantiate(ammoImage, transform);
         currentAmmoImage.rectTransform.position += offset;
-        currentAmmoText = Instantiate(ammoAmount, transform);
-        currentAmmoText.rectTransform.position += new Vector3(offset.x + currentAmmoImage.rectTransform.rect.width * 5, offset.y, offset.z);
+        currentAmmoText.rectTransform.position += new Vector3(offset.x, offset.y, offset.z);
         CharacterStats.instance.onAmmoChanged += DrawAmmoStats;
         DrawAmmoStats();
     }

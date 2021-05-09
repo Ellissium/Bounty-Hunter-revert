@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Localization : MonoBehaviour
 {
@@ -18,6 +19,12 @@ public class Localization : MonoBehaviour
     [SerializeField] private Text itemText;
     [SerializeField] private Text labelText;
     [SerializeField] private Text aboutUsMenuText;
+    [SerializeField] private Text walkText;
+    [SerializeField] private Text shootText;
+    [SerializeField] private Text pauseText;
+    [SerializeField] private Text interactionText;
+    [SerializeField] private Text bestTimeText;
+    [SerializeField] private Text lastTimeText;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject dropdawn;
     [SerializeField] private GameObject template;
@@ -26,6 +33,9 @@ public class Localization : MonoBehaviour
     private GameObject[] defaultsText;
     private string localizationType;
     private int itemIndex;
+    private float bestTime;
+    private long lasttime;
+
 
     public string Localizationtype { get { return localizationType; } set { localizationType = value; } }
 
@@ -42,7 +52,8 @@ public class Localization : MonoBehaviour
         PlayerInfo loadedData = DataSaver.loadData<PlayerInfo>("players");
         itemIndex = loadedData.indexSave;
         localizationType = loadedData.localizationTypeSave;
-
+        /*lasttime = Mathf.Min(loadedData.recordsSave);*/
+        Debug.Log(localizationType);
         SetLocalization();
         SetIndex(itemIndex);
     }
@@ -65,8 +76,9 @@ public class Localization : MonoBehaviour
             {
                 buttonText.GetComponent<Text>().fontSize = 8;
                 buttonText.GetComponent<Text>().fontStyle = FontStyle.Bold;
+                Debug.Log(buttonText.GetComponent<Text>().fontSize);
             }
-
+            
             foreach (GameObject defaultText in defaultsText)
             {
                 defaultText.GetComponent<Text>().fontSize = 15;
@@ -83,7 +95,7 @@ public class Localization : MonoBehaviour
             itemText.fontStyle = FontStyle.Bold;
 
             labelText.text = dropdawn.GetComponent<Dropdown>().options[itemIndex].text;
-            labelText.fontSize =14;
+            labelText.fontSize = 14;
             labelText.fontStyle = FontStyle.Bold;
 
             muteSoundText.text = "¬ À/¬» À   «¬” ";
@@ -97,6 +109,12 @@ public class Localization : MonoBehaviour
             aboutUsText.text = "œ–Œ Õ¿—";
             exitText.text = "¬»’≤ƒ";
             aboutUsMenuText.text = "Õ¿œ»ÿ»   “”“";
+            walkText.text = "’Œƒ‹¡¿";
+            shootText.text = "—“–≤À‹¡¿";
+            pauseText.text = "œ¿”«¿";
+            interactionText.text = "¬«¿™ÃŒƒ≤ﬂ";
+            bestTimeText.text = "Õ¿… –¿Ÿ»…   ◊¿—:";
+            lastTimeText.text = "Œ—“¿ÕÕ≤…   ◊¿—:";
         }
         else if (localizationType == "en")
         {
@@ -136,6 +154,12 @@ public class Localization : MonoBehaviour
             aboutUsText.text = "About   Us";
             exitText.text = "Exit";
             aboutUsMenuText.text = "Write   Here";
+            walkText.text = "Walk";
+            shootText.text = "Shoot";
+            pauseText.text = "Pause";
+            interactionText.text = "Interaction";
+            bestTimeText.text = "Best   Time:";
+            lastTimeText.text = "Last   Time:";
         }
     }
 }

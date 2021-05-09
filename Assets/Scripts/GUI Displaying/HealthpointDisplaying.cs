@@ -10,15 +10,14 @@ public class HealthpointDisplaying : MonoBehaviour
     [SerializeField] private Image healthPoint;
     [SerializeField] private NPC npc;
     [SerializeField] private GameObject background;
+    [SerializeField] private Text currentHealthText;
 
-    private Text currentHealthText;
     private int healthPoints;
     private List<Image> healthPointsList = new List<Image>();
     private Vector3 offset;
     private Vector3 basicOffset;
     private void Start()
     {
-        currentHealthText = Instantiate(healthAmount, transform);
         currentHealthText.text = "";
         background.GetComponent<RectTransform>().sizeDelta = new Vector2(0f, 17f);
         basicOffset = new Vector3(145f, -25f, 0f);
@@ -65,13 +64,13 @@ public class HealthpointDisplaying : MonoBehaviour
             {
                 currentHealthText.fontSize = 14;
                 currentHealthText.fontStyle = FontStyle.Normal;
-                currentHealthText.text = "You Have Max Health";
+                currentHealthText.text = "You  Have  Max  Health";
             }
             else
             {
                 currentHealthText.fontSize = 8;
                 currentHealthText.fontStyle = FontStyle.Bold;
-                currentHealthText.text = "” ¬¿— Ã¿ —»Ã¿À‹Õ≈ «ƒŒ–Œ¬'ﬂ";
+                currentHealthText.text = "”  ¬¿—  Ã¿ —»Ã¿À‹Õ≈  «ƒŒ–Œ¬'ﬂ";
             }
             yield return new WaitForSeconds(1f);
             currentHealthText.text = "";
